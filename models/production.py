@@ -6,9 +6,12 @@ import jdatetime
 import json
 
 
-class KmDataProduction(models.Model):
+class KmPetronadProduction(models.Model):
     _name = 'km_petronad.production'
-    _order = 'project,production_date'
+    _order = 'production_date'
+
+    # todo: make sure there is only one record for each day.
+    #   visualization calculates based on this assumption.
 
     production_date = fields.Date(default=lambda self: date.today() )
     project = fields.Many2one('project.project', )
@@ -19,6 +22,7 @@ class KmDataProduction(models.Model):
     h2_production = fields.Float()
     ww_production = fields.Float()
     feed = fields.Float()
+    workers = fields.Integer()
     description = fields.Text()
 
 

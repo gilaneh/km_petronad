@@ -3,7 +3,7 @@
 from odoo import models, fields, api, _
 
 
-# class KmData(models.Model):
+# class KmPetronad(models.Model):
 #     _name = 'km_petronad.toplevel'
 #
 #     name = fields.Char(required=True)

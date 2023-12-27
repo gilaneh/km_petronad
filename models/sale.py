@@ -6,7 +6,7 @@ import jdatetime
 import json
 
 
-class KmDataSale(models.Model):
+class KmPetronadSale(models.Model):
     _name = 'km_petronad.sale'
     _order = 'project,sale_date'
 

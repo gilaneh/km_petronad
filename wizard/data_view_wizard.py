@@ -9,7 +9,7 @@ from datetime import timedelta
 from odoo.exceptions import ValidationError, UserError
 
 # #############################################################################
-class KmDataDataView(models.TransientModel):
+class KmPetronadDataView(models.TransientModel):
     _name = 'km_petronad.data_view.wizard'
     _description = 'Data View Wizard'
 

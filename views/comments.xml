@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+
+       <record id="comments_list" model="ir.ui.view">
+            <field name="name">km_petronad.comments</field>
+            <field name="model">km_petronad.comments</field>
+            <field name="arch" type="xml">
+                <tree editable="bottom">
+                    <field name="sequence" widget='handle'/>
+                    <field name="date"/>
+                    <field name="project"/>
+                    <field name="comment"/>
+                </tree>
+            </field>
+        </record>
+
+       <record id="comments_search" model="ir.ui.view">
+            <field name="name">km_petronad.comments</field>
+            <field name="model">km_petronad.comments</field>
+            <field name="arch" type="xml">
+                <search >
+                    <field name="date"/>
+                    <field name="project"/>
+                    <field name="comment"/>
+                    <filter name="this_day_comments" string="Today" domain="[('date', '=', context_today().strftime('%Y-%m-%d'))]"> </filter>
+                </search>
+            </field>
+        </record>
+
+    <record id="comments_action" model="ir.actions.act_window">
+        <field name="name">comments Data</field>
+            <field name="res_model">km_petronad.comments</field>
+            <field name="view_mode">tree,form</field>
+        <field name="context">{'search_default_this_day_comments': 1}</field>
+    </record>
+
+    <menuitem name="Daily Comments"
+          sequence="22"
+          id="comments_menu"
+          parent="data_menu"
+          action="comments_action"/>
+</odoo>

@@ -3,7 +3,7 @@
 from odoo import models, fields, api, _
 
 
-class KmDataDashboard(models.Model):
+class KmPetronadDashboard(models.Model):
     _name = 'km_petronad.dashboard'
     _description = 'km_petronad.dashboard'
     _inherit = ['mail.thread', 'mail.activity.mixin']

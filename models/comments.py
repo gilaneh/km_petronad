@@ -6,9 +6,10 @@ import jdatetime
 import json
 
 
-class KmDataPetronadComments(models.Model):
+class KmPetronadPetronadComments(models.Model):
     _name = 'km_petronad.comments'
 
     date = fields.Date(default=lambda self: date.today() )
     project = fields.Many2one('project.project', )
     comment = fields.Char()
+    sequence = fields.Integer(default=10)

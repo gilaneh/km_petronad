@@ -30,7 +30,7 @@ const { onWillStart, useExternalListener, useRef, useSubEnv } = owl.hooks;
                         .catch(e => console.log(e));
         };
 
-    var KmDataViewFormController = FormController.extend({
+    var KmPetronadViewFormController = FormController.extend({
     events:{
         'click .bar_btn': '_barBtnSubmit',
         'click .line_btn': '_lineBtnSubmit',
@@ -78,7 +78,7 @@ const { onWillStart, useExternalListener, useRef, useSubEnv } = owl.hooks;
         },
     });
 
-    var KmDataViewFormRenderer = FormRenderer.extend({
+    var KmPetronadViewFormRenderer = FormRenderer.extend({
         start: async function(){
             let self = this;
             var res = this._super.apply(this, arguments);
@@ -121,15 +121,15 @@ const { onWillStart, useExternalListener, useRef, useSubEnv } = owl.hooks;
     });
 
 
-    var KmDataViewFormView = FormView.extend({
+    var KmPetronadViewFormView = FormView.extend({
         config: _.extend({}, FormView.prototype.config, {
-             Controller: KmDataViewFormController,
-             Renderer: KmDataViewFormRenderer,
+             Controller: KmPetronadViewFormController,
+             Renderer: KmPetronadViewFormRenderer,
         }),
     });
 
-    viewRegistry.add('km_petronad_data_view', KmDataViewFormView);
+    viewRegistry.add('km_petronad_data_view', KmPetronadViewFormView);
     export default {
-        KmDataViewFormView: KmDataViewFormView,
-        KmDataViewFormRenderer: KmDataViewFormRenderer,
+        KmPetronadViewFormView: KmPetronadViewFormView,
+        KmPetronadViewFormRenderer: KmPetronadViewFormRenderer,
     };

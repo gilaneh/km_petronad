@@ -106,18 +106,6 @@
             </field>
         </record>
 
-       <record id="comments_list" model="ir.ui.view">
-            <field name="name">km_petronad.comments</field>
-            <field name="model">km_petronad.comments</field>
-            <field name="arch" type="xml">
-                <tree editable="top">
-                    <field name="date"/>
-                    <field name="project"/>
-                    <field name="comment"/>
-
-                </tree>
-            </field>
-        </record>
 
     <record id="petronad_data_action" model="ir.actions.act_window">
         <field name="name">Petronad Data</field>
@@ -125,11 +113,6 @@
             <field name="view_mode">tree,form,pivot,graph</field>
     </record>
 
-    <record id="comments_action" model="ir.actions.act_window">
-        <field name="name">comments Data</field>
-            <field name="res_model">km_petronad.comments</field>
-            <field name="view_mode">tree,form</field>
-    </record>
 
 
     <menuitem name="Petronad Data"
@@ -138,9 +121,4 @@
           parent="data_menu"
           action="petronad_data_action"/>
 
-    <menuitem name="Petronad Comments"
-          sequence="22"
-          id="comments_menu"
-          parent="data_menu"
-          action="comments_action"/>
 </odoo>

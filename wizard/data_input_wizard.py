@@ -9,7 +9,7 @@ from datetime import timedelta
 from odoo.exceptions import ValidationError, UserError
 
 # #############################################################################
-class KmDataDataInputWizard(models.TransientModel):
+class KmPetronadDataInputWizard(models.TransientModel):
     _name = 'km_petronad.data_input.wizard'
     _description = 'Data input Wizard'
 
@@ -24,16 +24,6 @@ class KmDataDataInputWizard(models.TransientModel):
     h2_production = fields.Float()
     description_pro = fields.Text()
 
-    meg_sale = fields.Float()
-    deg_sale = fields.Float()
-    teg_sale = fields.Float()
-    h1_sale = fields.Float()
-    h2_sale = fields.Float()
-    description_sale = fields.Text()
-
-    feed_in = fields.Float()
-    feed_out = fields.Float()
-    description_feed = fields.Text()
 
     #
     # #############################################################################

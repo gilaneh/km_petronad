@@ -5,7 +5,7 @@
             <field name="name">km_petronad.production</field>
             <field name="model">km_petronad.production</field>
             <field name="arch" type="xml">
-                <tree editable="top" multi_edit="1">
+                <tree >
                     <field name="production_date"/>
                     <field name="project"/>
                     <field name="meg_production"/>
@@ -15,9 +15,42 @@
                     <field name="h2_production"/>
                     <field name="ww_production"/>
                     <field name="feed"/>
+                    <field name="workers"/>
                     <field name="description"/>
 
                 </tree>
+            </field>
+        </record>
+
+   <record id="production_form" model="ir.ui.view">
+            <field name="name">km_petronad.production</field>
+            <field name="model">km_petronad.production</field>
+            <field name="arch" type="xml">
+                <form >
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="production_date"/>
+                                <field name="project"/>
+                                <field name="workers"/>
+                            </group>
+                            <group>
+                                <field name="meg_production"/>
+                                <field name="deg_production"/>
+                                <field name="teg_production"/>
+                                <field name="h1_production"/>
+                                <field name="h2_production"/>
+                                <field name="ww_production"/>
+                                <field name="feed"/>
+
+                            </group>
+                        </group>
+                        <group>
+                                <field name="description"/>
+
+                        </group>
+                    </sheet>
+                </form>
             </field>
         </record>
 
@@ -25,7 +58,7 @@
     <record id="production_action" model="ir.actions.act_window">
         <field name="name">Production Data</field>
             <field name="res_model">km_petronad.production</field>
-            <field name="view_mode">tree</field>
+            <field name="view_mode">tree,form</field>
     </record>
 
 

@@ -7,3 +7,5 @@ from . import feeds
 from . import sale
 from . import production
 from . import comments
+from . import storage
+from . import tanks
