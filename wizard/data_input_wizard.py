@@ -42,7 +42,7 @@ class KmPetronadDataInputWizard(models.TransientModel):
                 'description': read_form.get('description_pro'),
                 })
         self.env['km_petronad.feeds'].create({
-                'feeds_date': read_form.get('data_date'),
+                'feed_date': read_form.get('data_date'),
                 'project': read_form.get('project')[0] if read_form.get('project') else False,
                 'feed_in': read_form.get('feed_in'),
                 'feed_out': read_form.get('feed_out'),

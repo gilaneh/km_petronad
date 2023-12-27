@@ -6,7 +6,7 @@
             <field name="model">km_petronad.feeds</field>
             <field name="arch" type="xml">
                 <tree >
-                    <field name="feeds_date"/>
+                    <field name="feed_date"/>
                     <field name="project"/>
                     <field name="feed_amount"/>
                     <field name="feed_analysis"/>
@@ -26,7 +26,7 @@
                     <sheet>
                         <group>
                             <group>
-                                <field name="feeds_date"/>
+                                <field name="feed_date"/>
                                 <field name="project"/>
                             </group>
                             <group>

@@ -42,8 +42,8 @@ class KmPetronadProduction(models.Model):
                                ('production_date', '>=', start_date),
                                ('production_date', '<=', end_date),])
         feed_records = self.env['km_petronad.feeds'].search([('project', '=', project_id),
-                               ('feeds_date', '>=', start_date),
-                               ('feeds_date', '<=', end_date),])
+                               ('feed_date', '>=', start_date),
+                               ('feed_date', '<=', end_date),])
 
         calendar = self.env.context.get('lang')
 

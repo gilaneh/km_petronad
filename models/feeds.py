@@ -8,9 +8,9 @@ import json
 
 class KmPetronadFeeds(models.Model):
     _name = 'km_petronad.feeds'
-    _order = 'project,feeds_date'
+    _order = 'project,feed_date'
 
-    feeds_date = fields.Date(default=lambda self: date.today(), required=True )
+    feed_date = fields.Date(default=lambda self: date.today(), required=True )
     project = fields.Many2one('project.project', )
     feed_amount = fields.Integer()
     feed_analysis = fields.Float()

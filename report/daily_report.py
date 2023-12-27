@@ -44,7 +44,7 @@ class Report(models.AbstractModel):
             #                                                           ('date', '<=', end_date)])
             calendar = form_data.get('calendar')
             feeds_data = self.env['km_petronad.feeds'].search([('project', '=', project_id),
-                                                                     ('feeds_date', '=', end_date),], limit=1)
+                                                                     ('feed_date', '=', end_date),], limit=1)
             production_data = self.env['km_petronad.production'].search([('project', '=', project_id),
                                                                      ('production_date', '=', end_date),], limit=1)
             docids = [feeds_data.id]
@@ -59,12 +59,12 @@ class Report(models.AbstractModel):
         last_week = end_date - timedelta(days=7)
         two_week = end_date - timedelta(days=14)
         data_records = self.env['km_petronad.feeds'].search([('project', '=', project_id),
-                                                                ('feeds_date', '<', end_date),
-                                                                 ('feeds_date', '>=', two_week), ], order='feeds_date desc')
-        data_last_week = [rec for rec in data_records if rec.feeds_date >=  last_week]
-        data_two_week = [rec for rec in data_records if rec.feeds_date <  last_week]
-        data_last_week_d = [rec.feeds_date for rec in data_records if rec.feeds_date >=  last_week]
-        data_two_week_d = [rec.feeds_date for rec in data_records if rec.feeds_date <  last_week]
+                                                                ('feed_date', '<', end_date),
+                                                                 ('feed_date', '>=', two_week), ], order='feed_date desc')
+        data_last_week = [rec for rec in data_records if rec.feed_date >=  last_week]
+        data_two_week = [rec for rec in data_records if rec.feed_date <  last_week]
+        data_last_week_d = [rec.feed_date for rec in data_records if rec.feed_date >=  last_week]
+        data_two_week_d = [rec.feed_date for rec in data_records if rec.feed_date <  last_week]
 
         print(f'\n ==========> \n data_last_week_d: {len(data_last_week_d)} {data_last_week_d} '
               f'\n data_two_week_d: {len(data_two_week_d)} {data_two_week_d}')
@@ -72,7 +72,7 @@ class Report(models.AbstractModel):
             # 'data_record': data_record,
             'feeds_data': feeds_data,
             'production_data': production_data,
-            'date': self.date_converter(feeds_data.feeds_date, context.get('lang')).get('date'),
+            'date': self.date_converter(feeds_data.feed_date, context.get('lang')).get('date'),
             # 'meg_last_week': round(sum([rec.meg_daily for rec in data_last_week]), 2),
             # 'deg_last_week': round(sum([rec.deg_daily for rec in data_last_week]), 2),
             # 'teg_last_week': round(sum([rec.teg_daily for rec in data_last_week]), 2),
