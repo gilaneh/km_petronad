@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+   <record id="petronad_data_list" model="ir.ui.view">
+            <field name="name">km_petronad.petronad_data</field>
+            <field name="model">km_petronad.petronad_data</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="date"/>
+                    <field name="project"/>
+                    <field name="meg_daily"/>
+                    <field name="deg_daily"/>
+                    <field name="teg_daily"/>
+                    <field name="feed"/>
+                    <field name="output"/>
+                    <field name="meg_product"/>
+                    <field name="deg_product"/>
+                    <field name="teg_product"/>
+                </tree>
+            </field>
+        </record>
+
+   <record id="petronad_data_form" model="ir.ui.view">
+            <field name="name">km_petronad.petronad_data</field>
+            <field name="model">km_petronad.petronad_data</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="date"/>
+                                <field name="project"/>
+
+                            </group>
+                            <gourp>
+
+                            </gourp>
+                        </group>
+                        <group>
+                            <group class="col-4" string="Daily Production">
+                                <field name="meg_daily"/>
+                                <field name="deg_daily"/>
+                                <field name="teg_daily"/>
+                            </group>
+                            <group class="col-4" string="feed/Output">
+                                <field name="feed"/>
+                                <field name="output"/>
+                            </group>
+                            <group class="col-4" string="Products">
+                                <field name="meg_product"/>
+                                <field name="deg_product"/>
+                                <field name="teg_product"/>
+
+                            </group>
+                        </group>
+                        <group>
+                            <group class="" string="Total">
+                                <field name="meg_total"/>
+                                <field name="deg_total"/>
+                                <field name="teg_total"/>
+                            </group>
+                            <group>
+                                <field name="total_amount"/>
+
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+   <record id="petronad_data_pivot" model="ir.ui.view">
+            <field name="name">km_petronad.petronad_data</field>
+            <field name="model">km_petronad.petronad_data</field>
+            <field name="arch" type="xml">
+                <pivot >
+                    <field name="date" interval="day" />
+                    <field name="meg_product" type="measure"/>
+                    <field name="deg_product" type="measure"/>
+                    <field name="teg_product" type="measure"/>
+                    <field name="project" type="col"/>
+                    <field name="meg_daily" type="measure"/>
+                    <field name="deg_daily" type="measure"/>
+                    <field name="teg_daily" type="measure"/>
+                    <field name="feed" type="measure"/>
+                    <field name="output" type="measure"/>
+                </pivot>
+            </field>
+        </record>
+   <record id="petronad_data_graph" model="ir.ui.view">
+            <field name="name">km_petronad.petronad_data</field>
+            <field name="model">km_petronad.petronad_data</field>
+            <field name="arch" type="xml">
+                <graph type="line" stacked="1">
+                    <field name="date" interval="day" />
+                    <field name="meg_product" type="measure"/>
+                    <field name="deg_product" type="measure"/>
+                    <field name="teg_product" type="measure"/>
+                    <field name="project" type="col"/>
+                    <field name="meg_daily" operator="+" type="col"/>
+                    <field name="deg_daily" operator="+" type="measure"/>
+                    <field name="teg_daily" operator="+" type="measure"/>
+                    <field name="feed" operator="+" type="measure"/>
+                    <field name="output" operator="+" type="measure"/>
+                </graph>
+            </field>
+        </record>
+
+       <record id="comments_list" model="ir.ui.view">
+            <field name="name">km_petronad.comments</field>
+            <field name="model">km_petronad.comments</field>
+            <field name="arch" type="xml">
+                <tree editable="top">
+                    <field name="date"/>
+                    <field name="project"/>
+                    <field name="comment"/>
+
+                </tree>
+            </field>
+        </record>
+
+    <record id="petronad_data_action" model="ir.actions.act_window">
+        <field name="name">Petronad Data</field>
+            <field name="res_model">km_petronad.petronad_data</field>
+            <field name="view_mode">tree,form,pivot,graph</field>
+    </record>
+
+    <record id="comments_action" model="ir.actions.act_window">
+        <field name="name">comments Data</field>
+            <field name="res_model">km_petronad.comments</field>
+            <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <menuitem name="Petronad Data"
+          sequence="21"
+          id="petronad_data_menu"
+          parent="data_menu"
+          action="petronad_data_action"/>
+
+    <menuitem name="Petronad Comments"
+          sequence="22"
+          id="comments_menu"
+          parent="data_menu"
+          action="comments_action"/>
+</odoo>

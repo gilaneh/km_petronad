@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+   <record id="production_list" model="ir.ui.view">
+            <field name="name">km_petronad.production</field>
+            <field name="model">km_petronad.production</field>
+            <field name="arch" type="xml">
+                <tree editable="top" multi_edit="1">
+                    <field name="production_date"/>
+                    <field name="project"/>
+                    <field name="meg_production"/>
+                    <field name="deg_production"/>
+                    <field name="teg_production"/>
+                    <field name="h1_production"/>
+                    <field name="h2_production"/>
+                    <field name="ww_production"/>
+                    <field name="feed"/>
+                    <field name="description"/>
+
+                </tree>
+            </field>
+        </record>
+
+
+    <record id="production_action" model="ir.actions.act_window">
+        <field name="name">Production Data</field>
+            <field name="res_model">km_petronad.production</field>
+            <field name="view_mode">tree</field>
+    </record>
+
+
+
+    <menuitem name="Production"
+          sequence="21"
+          id="production_menu"
+          parent="settings_menu"
+          action="production_action"/>
+
+
+</odoo>

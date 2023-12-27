@@ -1,0 +1,19 @@
+.km_daily_title{
+    background-color: rgb(255, 230, 153);
+}
+.km_daily_value{
+    background-color: rgb(255, 242, 204);
+}
+.km_inout_title{
+    background-color: rgb(167, 255, 167);
+}
+.km_inout_value{
+    background-color: rgb(217, 255, 217);
+}
+.km_product_title{
+    background-color: rgb(151, 255, 255);
+}
+.km_product_value{
+    background-color: rgb(205, 255, 255);
+}
+

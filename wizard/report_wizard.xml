@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="km_petronad_report_wizard_form" model="ir.ui.view">
+            <field name="name">km_petronad.report.wizard.form</field>
+            <field name="model">km_petronad.report.wizard</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <group>
+                            <field name="project" options='{"no_open": True, "no_create": True}'/>
+                        </group>
+                        <group>
+                        </group>
+                    </group>
+                    <group>
+                        <group>
+<!--                            <field name="start_date" />-->
+                        </group>
+                        <group>
+                            <field name="end_date" string="Date" />
+                        </group>
+                    </group>
+
+
+                    <footer>
+                        <button name="overview_daily_report" string="Print" type="object" class="btn btn-primary"/>
+                        <button string="Cancel" special="cancel" class="btn-secondary"/>
+                    </footer>
+
+                </form>
+            </field>
+        </record>
+
+        <record id="km_petronad_report_wizard_action" model="ir.actions.act_window">
+            <field name="name">Project Overview Daily Report</field>
+            <field name="res_model">km_petronad.report.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+
+        <menuitem name="Reports"
+                  sequence="20"
+                  id="km_petronad_report"
+                  parent="km_petronad.reports_menu"
+                  groups="km_petronad.group_km_petronad_users"
+                  action="km_petronad_report_wizard_action"/>
+    </data>
+</odoo>
+

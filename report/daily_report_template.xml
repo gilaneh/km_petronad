@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="daily_report_data">
+<!--                <t t-call="web.html_container" >-->
+<!--                                <t t-set="o" t-value="o.with_context(lang=lang)" />-->
+
+                    <div class="page">
+                        <div class="">
+                            <div class="row border rounded mb-2 " style="justify-content: space-around;">
+                                <div t-esc="project" class="col-2"></div>
+                                <div class="col-2 mx-3"><img t-attf-src="/web/image/res.partner/{{company_id}}/image_128/" alt="Logo"/></div>
+                            </div>
+                            <div class="  mb-2 text-center">
+                                    <span>گزارش روزانه تولید</span>
+                                    <span t-esc="doc_data['date']" calss="mx-3"></span>
+                            </div>
+                            <div class="mb-5 text-center">
+                                واحد اتیلن گلایکل ها
+                            </div>
+
+                        </div>
+                        <div class="border border-warning rounded mx-auto mb-3 text-center" style="width:400px;">
+                            <div class="row mx-0 border-warning border-bottom">
+                                <div class="col-6 km_daily_title">
+                                    تولید روزانه MEG
+                                </div>
+                                <div class="col-6 km_daily_value" t-esc="production_data['meg_production']"></div>
+                            </div>
+                            <div class="row mx-0 border-warning border-bottom">
+                                <div class="col-6 km_daily_title">
+                                    تولید روزانه DEG
+                                </div>
+                                <div class="col-6 km_daily_value"  t-esc="production_data['deg_production']"></div>
+                            </div>
+                            <div class="row mx-0 ">
+                                <div class="col-6 km_daily_title">
+                                    تولید روزانه TEG
+                                </div>
+                                <div class="col-6 km_daily_value"  t-esc="production_data['teg_production']"></div>
+                            </div>
+                        </div>
+
+                        <div class="border border-success rounded mx-auto mb-3 text-center" style="width:400px;">
+                            <div class="row mx-0 border-success border-bottom">
+                                <div class="col-6 km_inout_title">
+                                    خوراک ورودی
+                                </div>
+                                <div class="col-6 km_inout_value" t-esc="feeds_data['feed_in']"></div>
+                            </div>
+                            <div class="row mx-0 ">
+                                <div class="col-6 km_inout_title">
+                                    محصول خروجی
+                                </div>
+                                <div class="col-6 km_inout_value" t-esc="feeds_data['feed_out']"></div>
+                            </div>
+                        </div>
+
+                        <div class="border border-info rounded mx-auto mb-3 text-center" style="width:400px;">
+                            <div class="row mx-0 border-info border-bottom">
+                                <div class="col-6 km_product_title">
+                                    موجودی محصول MEG
+                                </div>
+<!--                                <div class="col-6 km_product_value" t-esc="o['meg_product']"></div>-->
+                            </div>
+                            <div class="row mx-0 border-info border-bottom">
+                                <div class="col-6 km_product_title">
+                                    موجودی محصول DEG
+                                </div>
+<!--                                <div class="col-6 km_product_value" t-esc="o['deg_product']"></div>-->
+                            </div>
+                            <div class="row mx-0 ">
+                                <div class="col-6 km_product_title">
+                                    موجودی محصول TEG
+                                </div>
+<!--                                <div class="col-6 km_product_value" t-esc="o['teg_product']"></div>-->
+                            </div>
+                        </div>
+
+<!--                        <div class="row mx-auto" style="width:500px;">-->
+<!--                            <div class="col-6">-->
+<!--                                <div class="px-3 bg-600">-->
+<!--                                    تولید طی هفته گذشته-->
+<!--                                </div>-->
+<!--                                <div class="row mx-auto text-center " >-->
+<!--                                    <div class="col-6 border border-dark">-->
+<!--                                        MEG-->
+<!--                                    </div>-->
+<!--                                    <div class="col-6 border border-dark">-->
+<!--                                        <t t-esc="doc_data['meg_last_week']"/>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                                <div class="row mx-auto text-center " >-->
+<!--                                    <div class="col-6 border border-dark">-->
+<!--                                        DEG-->
+<!--                                    </div>-->
+<!--                                    <div class="col-6 border border-dark">-->
+<!--                                        <t t-esc="doc_data['deg_last_week']"/>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                                <div class="row mx-auto text-center " >-->
+<!--                                    <div class="col-6 border border-dark">-->
+<!--                                        TEG-->
+<!--                                    </div>-->
+<!--                                    <div class="col-6 border border-dark">-->
+<!--                                        <t t-esc="doc_data['teg_last_week']"/>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                                <div class="row mx-auto text-center " >-->
+<!--                                    <div class="col-6 border border-dark">-->
+<!--                                        Total-->
+<!--                                    </div>-->
+<!--                                    <div class="col-6 border border-dark">-->
+<!--                                        <t t-esc="doc_data['meg_last_week'] + doc_data['deg_last_week'] + doc_data['teg_last_week'] "/>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            <div class="col-6">-->
+<!--                                <div class="px-3 bg-600">-->
+<!--                                    تولید طی هفته باقبل-->
+<!--                                </div>-->
+<!--                                <div class="row mx-auto text-center " >-->
+<!--                                    <div class="col-6 border border-dark">-->
+<!--                                        MEG-->
+<!--                                    </div>-->
+<!--                                    <div class="col-6 border border-dark">-->
+<!--                                        <t t-esc="doc_data['meg_two_week']"/>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                                <div class="row mx-auto text-center " >-->
+<!--                                    <div class="col-6 border border-dark">-->
+<!--                                        DEG-->
+<!--                                    </div>-->
+<!--                                    <div class="col-6 border border-dark">-->
+<!--                                        <t t-esc="doc_data['deg_two_week']"/>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                                <div class="row mx-auto text-center " >-->
+<!--                                    <div class="col-6 border border-dark">-->
+<!--                                        TEG-->
+<!--                                    </div>-->
+<!--                                    <div class="col-6 border border-dark">-->
+<!--                                        <t t-esc="doc_data['teg_two_week']"/>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                                <div class="row mx-auto text-center " >-->
+<!--                                    <div class="col-6 border border-dark">-->
+<!--                                        Total-->
+<!--                                    </div>-->
+<!--                                    <div class="col-6 border border-dark">-->
+<!--                                        <t t-esc="doc_data['meg_two_week'] + doc_data['deg_two_week'] + doc_data['teg_two_week'] "/>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+
+                        <div class="row mx-auto mt-4 border"  style="width:600px;">
+                            <div class="col-6 border">
+                                <span t-esc="history"></span>
+                            </div>
+                            <div class="col-2 border p-0 text-center">
+                                <div class="bg-dark text-light ">MEG</div>
+                                <div>1956</div>
+                            </div>
+                            <div class="col-2 border p-0 text-center">
+                                <div class="bg-dark text-light ">DEG</div>
+                                <div>359</div>
+                            </div>
+                            <div class="col-2 border p-0 text-center">
+                                <div class="bg-dark text-light ">TEG</div>
+                                <div>539</div>
+                            </div>
+                        </div>
+
+                        <div class=" mx-auto mt-4 border" style="width:800px;">
+                            <div class="bg-dark">
+                                <span>نکات مهم/چالشها</span>
+                            </div>
+                            <t t-set="index" t-value="1"/>
+                            <t t-foreach="comments" t-as="comment" >
+                                <div>
+                                    <span  t-esc="index"></span>
+                                    <span  t-esc="'- ' + comment"></span>
+                                </div>
+                                <t t-set="index" t-value="index+1"/>
+
+                            </t>
+
+
+                        </div>
+
+
+                    </div>
+<!--            </t>-->
+        </template>
+
+        <template id="daily_report_template">
+            <t t-call="web.basic_layout">
+                <div class="container">
+                    <t t-foreach="docs" t-as="o">
+                        <t t-call="km_petronad.daily_report_data" t-lang="lang"/>
+                    </t>
+
+                </div>
+            </t>
+        </template>
+
+    </data>
+</odoo>
