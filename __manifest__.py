@@ -3,7 +3,7 @@
     'name': "km_petronad",
 
     'summary': """
-        It will show the jalaali date for most of date fields""",
+        """,
 
     'description': """
         
