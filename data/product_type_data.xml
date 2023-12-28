@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+<!--         <data>-->
+
+
+        <record id="product_type_0" model="km_petronad.product_type">
+            <field name="name">MEG</field>
+        </record>
+        <record id="product_type_1" model="km_petronad.product_type">
+            <field name="name">DEG</field>
+        </record>
+        <record id="product_type_2" model="km_petronad.product_type">
+            <field name="name">TEG</field>
+        </record>
+        <record id="product_type_2" model="km_petronad.product_type">
+            <field name="name">H1</field>
+        </record>
+        <record id="product_type_2" model="km_petronad.product_type">
+            <field name="name">H2</field>
+        </record>
+
+
+         </data>
+</odoo>

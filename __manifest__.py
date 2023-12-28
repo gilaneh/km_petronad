@@ -37,6 +37,7 @@
         # 'wizard/data_view_wizard.xml',
         'views/comments.xml',
         'views/petronad.xml',
+        'data/product_type_data.xml',
         # 'report/daily_report.xml',
         # 'report/daily_report_template.xml',
         ],
@@ -49,7 +50,7 @@
         'web.assets_backend': [
             # 'km_petronad/static/src/lib/plotlyjs_2.27.1/plotly.min.js',
             # 'km_petronad/static/src/js/plotly.min.js',
-            'km_petronad/static/src/js/km_petronad_data_view.js',
+            # 'km_petronad/static/src/js/km_petronad_data_view.js',
             # 'km_petronad/static/src/js/plotly_field.js',
 
         ],

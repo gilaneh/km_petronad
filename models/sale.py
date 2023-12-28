@@ -10,11 +10,11 @@ class KmPetronadSale(models.Model):
     _name = 'km_petronad.sale'
     _order = 'project,sale_date'
 
-    sale_date = fields.Date(default=lambda self: date.today() )
-    project = fields.Many2one('project.project', )
-    meg_sale = fields.Float()
-    deg_sale = fields.Float()
-    teg_sale = fields.Float()
-    h1_sale = fields.Float()
-    h2_sale = fields.Float()
+    sale_date = fields.Date(default=lambda self: date.today(), required=True)
+    project = fields.Many2one('project.project', required=True)
+    product_type = fields.Many2one('km_petronad.product_type', required=True)
+    amount = fields.Integer()
+    total_price = fields.Integer()
+    currency = fields.Many2one('res.currency')
+    buyer = fields.Many2one('res.partner')
     description = fields.Text()

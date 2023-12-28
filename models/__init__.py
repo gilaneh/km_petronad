@@ -9,3 +9,4 @@ from . import production
 from . import comments
 from . import storage
 from . import tanks
+from . import general
