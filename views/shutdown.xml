@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+
+       <record id="shutdown_list" model="ir.ui.view">
+            <field name="name">km_petronad.shutdown</field>
+            <field name="model">km_petronad.shutdown</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="shutdown_date"/>
+                    <field name="shutdown_time"/>
+                    <field name="project"/>
+                    <field name="shutdown_type"/>
+<!--                    <field name="description"/>-->
+                </tree>
+            </field>
+        </record>
+       <record id="shutdown_form" model="ir.ui.view">
+            <field name="name">km_petronad.shutdown</field>
+            <field name="model">km_petronad.shutdown</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="shutdown_date"/>
+                                <field name="project"/>
+
+                            </group>
+                            <group>
+                                <field name="shutdown_time"/>
+                                <field name="shutdown_type"/>
+
+                            </group>
+                        </group>
+                        <group>
+                            <field name="description"/>
+
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+       <record id="shutdown_search" model="ir.ui.view">
+            <field name="name">km_petronad.shutdown</field>
+            <field name="model">km_petronad.shutdown</field>
+            <field name="arch" type="xml">
+                <search >
+                    <field name="shutdown_date"/>
+                    <field name="project"/>
+                    <field name="shutdown_type"/>
+                    <field name="description"/>
+                    <filter name="this_day_shutdown" string="Today" domain="[('shutdown_date', '=', context_today().strftime('%Y-%m-%d'))]"> </filter>
+                    <group>
+                        <filter name="shutdown_types" string="Types" context="{'group_by': 'shutdown_type'}"> </filter>
+
+                    </group>
+                </search>
+            </field>
+        </record>
+
+    <record id="shutdown_action" model="ir.actions.act_window">
+        <field name="name">shutdown Data</field>
+            <field name="res_model">km_petronad.shutdown</field>
+            <field name="view_mode">tree,form</field>
+        <field name="context">{'search_default_this_day_shutdown': 1}</field>
+    </record>
+
+    <menuitem name="Shutdown"
+          sequence="22"
+          id="shutdown_menu"
+          parent="data_menu"
+          action="shutdown_action"/>
+</odoo>

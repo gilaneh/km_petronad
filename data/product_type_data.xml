@@ -13,10 +13,10 @@
         <record id="product_type_2" model="km_petronad.product_type">
             <field name="name">TEG</field>
         </record>
-        <record id="product_type_2" model="km_petronad.product_type">
+        <record id="product_type_3" model="km_petronad.product_type">
             <field name="name">H1</field>
         </record>
-        <record id="product_type_2" model="km_petronad.product_type">
+        <record id="product_type_4" model="km_petronad.product_type">
             <field name="name">H2</field>
         </record>
 
