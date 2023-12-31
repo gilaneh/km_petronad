@@ -21,3 +21,12 @@ class KmPetronadTanks(models.Model):
     feed_tank_2 = fields.Integer()
     description = fields.Text()
 
+
+class KmPetronadStorageTanks(models.Model):
+    _name = 'km_petronad.storage_tanks'
+
+    name = fields.Char(require=True )
+    capacity = fields.Integer(require=True)
+    project = fields.Many2one('project.project', require=True )
+    description = fields.Text()
+

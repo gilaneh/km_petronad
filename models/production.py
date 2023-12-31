@@ -86,3 +86,9 @@ class KmPetronadProduction(models.Model):
         }
 
         return json.dumps({'plot_data': plot_data, 'plot_layout': plot_layout})
+
+
+class KmPetronadProductType(models.Model):
+    _name = 'km_petronad.product_type'
+
+    name = fields.Char()

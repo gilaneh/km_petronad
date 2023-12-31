@@ -11,10 +11,11 @@ class KmPetronadFeeds(models.Model):
     _order = 'project,feed_date'
 
     feed_date = fields.Date(default=lambda self: date.today(), required=True )
-    project = fields.Many2one('project.project', )
-    feed_amount = fields.Integer()
+    project = fields.Many2one('project.project', required=True )
+    feed_amount = fields.Integer(required=True)
     feed_analysis = fields.Float()
     contractor = fields.Many2one('res.partner')
+    suppliers = fields.Many2one('res.partner')
     transport = fields.Integer()
     description = fields.Text()
 

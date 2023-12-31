@@ -6,8 +6,5 @@ import jdatetime
 import json
 
 
-class KmPetronadProductType(models.Model):
-    _name = 'km_petronad.product_type'
 
-    name = fields.Char()
 
