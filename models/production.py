@@ -26,6 +26,7 @@ class KmPetronadProduction(models.Model):
     description = fields.Text()
 
 
+
     def get_data_plotly(self, project_id, start_date, end_date, chart_type='bar'):
         print(f'========>\n {project_id}, {start_date}, {end_date}')
         start_date = datetime.strptime(start_date, '%Y-%m-%d').date()
@@ -87,6 +88,18 @@ class KmPetronadProduction(models.Model):
 
         return json.dumps({'plot_data': plot_data, 'plot_layout': plot_layout})
 
+class KmPetronadProductions(models.Model):
+    _name = 'km_petronad.productions'
+    _order = 'production_date'
+
+    production_date = fields.Date(default=lambda self: date.today() )
+    project = fields.Many2one('project.project', )
+    product_type = fields.Many2one('km_petronad.product_type', )
+    amount = fields.Integer()
+    product_sale = fields.Selection([('production', 'Production'), ('sale', 'Sale')],
+                                    default='production', require=True)
+    storage_tank = fields.Many2one('km_petronad.storage_tanks', require=True )
+    description = fields.Text()
 
 class KmPetronadProductType(models.Model):
     _name = 'km_petronad.product_type'

@@ -16,10 +16,10 @@
     # for the full list
     'category': 'Service Desk/Service Desk',
     'application': True,
-    'version': '1.0.0',
+    'version': '1.1.2',
 
     # any module necessary for this one to work correctly
-    'depends': ['base', 'web', 'mail', 'project', 'sd_apps', 'hr'],
+    'depends': ['base', 'web', 'mail', 'project', 'hr'],
 
     # always loaded
     'data': [
@@ -49,11 +49,15 @@
         'web._assets_common_styles': [
             'km_petronad/static/src/css/report.css',
         ],
+        'web.assets_qweb': [
+            'km_petronad/static/src/components/**/*.xml',
+        ],
         'web.assets_backend': [
             # 'km_petronad/static/src/lib/plotlyjs_2.27.1/plotly.min.js',
             # 'km_petronad/static/src/js/plotly.min.js',
             # 'km_petronad/static/src/js/km_petronad_data_view.js',
-            # 'km_petronad/static/src/js/plotly_field.js',
+            'km_petronad/static/src/components/**/*.js',
+            'km_petronad/static/src/components/**/*.scss',
 
         ],
         'web.assets_frontend': [

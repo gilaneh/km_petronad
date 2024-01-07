@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates>
+    <t t-name="km_petronad.kpi_card" owl="1">
+        <div class="border border-info">KPI</div>
+
+    </t>
+</templates>

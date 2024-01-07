@@ -1,5 +1,5 @@
 <odoo>
-    <data>
+
 
         <!-- ==================================================  km_petronad.SETTINGS ====================-->
 
@@ -106,6 +106,12 @@
                 ]"/>
         </record>
 
+        <record model="ir.actions.client" id="action_window_dashboard_view">
+            <field name="name">km_petronad.dashboard</field>
+            <field name="tag">km_petronad.dashboard_view</field>
+        </record>
+
+
         <!-- ==================================================  Menu ====================-->
 
 
@@ -116,7 +122,7 @@
 
         <menuitem name="Kimya Petronad"
                   id="km_petronad.km_petronad_root_menu"
-                  action="km_petronad.action_window_kanban"/>
+                  action="km_petronad.action_window_dashboard_view"/>
 
         <menuitem name="Data"
                   id="km_petronad.data_menu"
@@ -141,5 +147,4 @@
                   parent="settings_menu"
                   groups="km_petronad.group_km_petronad_admins"
                   action="km_petronad.action_window_services_dashboard_setup"/>
-    </data>
 </odoo>

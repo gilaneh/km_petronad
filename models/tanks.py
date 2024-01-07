@@ -26,7 +26,9 @@ class KmPetronadStorageTanks(models.Model):
     _name = 'km_petronad.storage_tanks'
 
     name = fields.Char(require=True )
-    capacity = fields.Integer(require=True)
+    location = fields.Char(require=False )
+    asset_id = fields.Char(require=False )
     project = fields.Many2one('project.project', require=True )
+    capacity = fields.Integer(require=True)
     description = fields.Text()
 

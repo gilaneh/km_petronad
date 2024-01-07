@@ -62,11 +62,11 @@
 
 
 
-    <menuitem name="Storage"
-          sequence="21"
-          id="storage_menu"
-          parent="settings_menu"
-          action="storage_action"/>
+<!--    <menuitem name="Storage"-->
+<!--          sequence="21"-->
+<!--          id="storage_menu"-->
+<!--          parent="settings_menu"-->
+<!--          action="storage_action"/>-->
 
 
 </odoo>
