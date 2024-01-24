@@ -1,2 +1,4 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_km_petronad_tanks_admins,km_petronad.tanks,model_km_petronad_tanks,km_petronad.group_km_petronad_admins,1,1,1,1
+access_km_petronad_storage_tanks_admins,km_petronad.storage_tanks,model_km_petronad_storage_tanks,km_petronad.group_km_petronad_admins,1,1,1,1
+access_km_petronad_fluids_admins,km_petronad.fluids,model_km_petronad_fluids,km_petronad.group_km_petronad_admins,1,1,1,1
+access_km_petronad_fluid_move_admins,km_petronad.fluid_move,model_km_petronad_fluid_move,km_petronad.group_km_petronad_admins,1,1,1,1

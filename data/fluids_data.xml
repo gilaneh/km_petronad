@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+<!--         <data>-->
+
+
+        <record id="fluids_0" model="km_petronad.fluids">
+            <field name="name">FEED</field>
+        </record>
+        <record id="fluids_1" model="km_petronad.fluids">
+            <field name="name">MEG</field>
+        </record>
+        <record id="fluids_2" model="km_petronad.fluids">
+            <field name="name">DEG</field>
+        </record>
+        <record id="fluids_3" model="km_petronad.fluids">
+            <field name="name">TEG</field>
+        </record>
+        <record id="fluids_4" model="km_petronad.fluids">
+            <field name="name">H1</field>
+        </record>
+        <record id="fluids_5" model="km_petronad.fluids">
+            <field name="name">H2</field>
+        </record>
+        <record id="fluids_6" model="km_petronad.fluids">
+            <field name="name">WW</field>
+        </record>
+
+
+         </data>
+</odoo>
