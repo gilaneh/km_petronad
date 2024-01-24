@@ -3,4 +3,13 @@
 <odoo>
 
 
+    <menuitem name="Petronad"
+          sequence="21"
+          id="petronad_menu"  />
+
+    <menuitem name="Settings"
+          sequence="21"
+          id="settings_menu"
+          parent="petronad_menu"/>
+
 </odoo>
