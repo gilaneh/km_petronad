@@ -8,8 +8,9 @@
                 <tree editable="bottom">
                     <field name="name"/>
                     <field name="location"/>
+                    <field name="tank_date"/>
                     <field name="asset_id"/>
-                    <field name="project"/>
+                    <field name="fluid"/>
                     <field name="capacity"/>
                     <field name="description"/>
 

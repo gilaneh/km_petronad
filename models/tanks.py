@@ -5,30 +5,17 @@ from datetime import date, datetime
 import jdatetime
 import json
 
-class KmPetronadTanks(models.Model):
-    _name = 'km_petronad.tanks'
-    _order = 'tanks_date'
-
-    tanks_date = fields.Date(default=lambda self: date.today() )
-    project = fields.Many2one('project.project', )
-    meg_tank = fields.Integer()
-    deg_tank = fields.Integer()
-    teg_tank = fields.Integer()
-    h1_tank = fields.Integer()
-    h2_tank = fields.Integer()
-    ww_tank = fields.Integer()
-    feed_tank_1 = fields.Integer()
-    feed_tank_2 = fields.Integer()
-    description = fields.Text()
-
 
 class KmPetronadStorageTanks(models.Model):
     _name = 'km_petronad.storage_tanks'
 
     name = fields.Char(require=True )
+    tank_date = fields.Datetime(default=lambda self: datetime.now())
     location = fields.Char(require=False )
     asset_id = fields.Char(require=False )
-    project = fields.Many2one('project.project', require=True )
+    fluid = fields.Many2one('km_petronad.fluids', require=True )
     capacity = fields.Integer(require=True)
     description = fields.Text()
+
+#     todo: there
 
