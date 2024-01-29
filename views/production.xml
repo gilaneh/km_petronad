@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+   <record id="production_unit_list" model="ir.ui.view">
+            <field name="name">km_petronad.production_unit</field>
+            <field name="model">km_petronad.production_unit</field>
+            <field name="arch" type="xml">
+                <tree editable="bottom">
+                    <field name="name"/>
+                    <field name="company"/>
+                    <field name="description"/>
+                </tree>
+            </field>
+        </record>
+
+   <record id="production_record_list" model="ir.ui.view">
+            <field name="name">km_petronad.production_record</field>
+            <field name="model">km_petronad.production_record</field>
+            <field name="arch" type="xml">
+                <tree editable="bottom">
+                    <field name="data_date"/>
+                    <field name="fluid"/>
+                    <field name="tank"/>
+                    <field name="partner"/>
+                    <field name="analysis"/>
+                    <field name="amount"/>
+                </tree>
+            </field>
+        </record>
+
+
+    <record id="production_unit_action" model="ir.actions.act_window">
+        <field name="name">Production Unit</field>
+            <field name="res_model">km_petronad.production_unit</field>
+            <field name="view_mode">tree</field>
+    </record>
+
+    <record id="production_record_action" model="ir.actions.act_window">
+        <field name="name">Production Record</field>
+            <field name="res_model">km_petronad.production_record</field>
+            <field name="view_mode">tree</field>
+    </record>
+
+    <menuitem name="Production Unit"
+          sequence="10"
+          id="production_unit_menu"
+          parent="settings_menu"
+          action="production_unit_action"/>
+
+    <menuitem name="Production Record"
+          sequence="11"
+          id="production_record_menu"
+          parent="petronad_menu"
+          action="production_record_action"/>
+
+</odoo>

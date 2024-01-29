@@ -6,6 +6,8 @@
             <field name="arch" type="xml">
                 <tree editable="bottom">
                     <field name="name"/>
+                    <field name="fluid_type"/>
+                    <field name="production_units" widget="many2many_tags"/>
                     <field name="description"/>
                 </tree>
             </field>
@@ -18,7 +20,7 @@
     </record>
 
     <menuitem name="Fluid"
-          sequence="21"
+          sequence="20"
           id="fluids_menu"
           parent="settings_menu"
           action="fluids_action"/>

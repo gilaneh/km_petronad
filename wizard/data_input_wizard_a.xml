@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="km_petronad_data_input_wizard_a_form" model="ir.ui.view">
+            <field name="name">km_petronad.data_input.wizard_a.form</field>
+            <field name="model">km_petronad.data_input.wizard_a</field>
+            <field name="arch" type="xml">
+                <form edit="0" js_class="km_petronad_data_input">
+
+                    <group>
+                        <group>
+<!--                            <field name="project" options='{"no_open": True, "no_create": True}'/>-->
+                            <field name="start_datetime" invisible="1"  />
+                            <field name="end_datetime"  invisible="1"/>
+                            <field name="data_date" />
+                        </group>
+                        <group>
+
+                        </group>
+                    </group>
+                    <group>
+                        <group string="">
+                            <field name="feed_usage" />
+                            <field name="meg_production" />
+                            <field name="deg_production" />
+                            <field name="teg_production" />
+                            <field name="h1_production" />
+                            <field name="h2_production" />
+                            <field name="ww_production" />
+                        </group>
+                        <group string="">
+                            <field name="feed_tank" domain="['|', ('fluid', '=', 'FEED'),('fluid', '=', 'H1')]" options="{'no_create': True, 'no_open': True}" attrs="{'required': [('feed_usage', '!=', 0)]}"/>
+                            <field name="meg_tank" domain="[('fluid', '=', 'MEG')]" options="{'no_create': True, 'no_open': True}" attrs="{'required': [('meg_production', '!=', 0)]}"/>
+                            <field name="deg_tank" domain="[('fluid', '=', 'DEG')]" options="{'no_create': True, 'no_open': True}" attrs="{'required': [('deg_production', '!=', 0)]}"/>
+                            <field name="teg_tank" domain="[('fluid', '=', 'TEG')]" options="{'no_create': True, 'no_open': True}" attrs="{'required': [('teg_production', '!=', 0)]}"/>
+                            <field name="h1_tank" domain="[('fluid', '=', 'H1')]" options="{'no_create': True, 'no_open': True}" attrs="{'required': [('h1_production', '!=', 0)]}"/>
+                            <field name="h2_tank" domain="[('fluid', '=', 'H2')]" options="{'no_create': True, 'no_open': True}" attrs="{'required': [('h2_production', '!=', 0)]}"/>
+                            <field name="ww_tank" domain="[('fluid', '=', 'WW')]" options="{'no_create': True, 'no_open': True}" attrs="{'required': [('ww_production', '!=', 0)]}"/>
+                        </group>
+                    </group>
+
+                    <footer>
+                        <button name="process_data" string="Save" type="object" class="btn btn-primary"/>
+                        <button string="Cancel" special="cancel" class="btn-secondary"/>
+                    </footer>
+
+                </form>
+            </field>
+        </record>
+
+        <record id="km_petronad_data_input_wizard_a_action" model="ir.actions.act_window">
+            <field name="name">Data Input</field>
+            <field name="res_model">km_petronad.data_input.wizard_a</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+
+        <menuitem name="Production"
+                  sequence="20"
+                  id="km_petronad_data_input_a"
+                  parent="km_petronad.petronad_menu"
+                  action="km_petronad_data_input_wizard_a_action"/>
+    </data>
+</odoo>
+

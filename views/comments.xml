@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+       <record id="comments_list" model="ir.ui.view">
+            <field name="name">km_petronad.comments</field>
+            <field name="model">km_petronad.comments</field>
+            <field name="arch" type="xml">
+                <tree >
+                    <field name="comment_date"/>
+                    <field name="description"/>
+
+                </tree>
+            </field>
+        </record>
+
+       <record id="comments_form" model="ir.ui.view">
+            <field name="name">km_petronad.comments</field>
+            <field name="model">km_petronad.comments</field>
+            <field name="arch" type="xml">
+                <form >
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="comment_date"/>
+
+                            </group>
+                        </group>
+                        <group>
+                                <field name="description"/>
+
+                        </group>
+                    </sheet>
+
+                </form>
+            </field>
+        </record>
+
+
+
+    <record id="comments_action" model="ir.actions.act_window">
+        <field name="name">Comments</field>
+            <field name="res_model">km_petronad.comments</field>
+            <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <menuitem name="Comments"
+          sequence="30"
+          id="comments_menu"
+          parent="settings_menu"
+          action="comments_action"/>
+
+
+</odoo>

@@ -10,7 +10,10 @@ class KmPetronadFluids(models.Model):
     _name = 'km_petronad.fluids'
 
     name = fields.Char(require=True )
+    fluid_type = fields.Selection([('feed', 'Feed'), ('product', 'Product')], default='product', require=True)
     description = fields.Text()
+    production_units = fields.Many2many('km_petronad.production_unit')
+
 
 class KmPetronadFluidMove(models.Model):
     _name = 'km_petronad.fluid_move'

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+<!--         <data>-->
+
+
+        <record id="tank_operations_0" model="km_petronad.tank_operations">
+            <field name="name">Production</field>
+            <field name="code">production</field>
+        </record>
+        <record id="tank_operations_1" model="km_petronad.tank_operations">
+            <field name="name">Feed Receive</field>
+            <field name="code">feed_receive</field>
+        </record>
+        <record id="tank_operations_2" model="km_petronad.tank_operations">
+            <field name="name">Feed Usage</field>
+            <field name="code">feed_usage</field>
+        </record>
+        <record id="tank_operations_3" model="km_petronad.tank_operations">
+            <field name="name">Sending</field>
+            <field name="code">sending</field>
+        </record>
+        <record id="tank_operations_4" model="km_petronad.tank_operations">
+            <field name="name">Movement</field>
+            <field name="code">movement</field>
+        </record>
+
+
+         </data>
+</odoo>

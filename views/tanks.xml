@@ -6,13 +6,27 @@
             <field name="arch" type="xml">
                 <tree editable="bottom">
                     <field name="name"/>
+                    <field name="production_unit"/>
                     <field name="location"/>
-                    <field name="tank_date"/>
+<!--                    <field name="tank_date"/>-->
                     <field name="asset_id"/>
                     <field name="fluid"/>
                     <field name="capacity"/>
+                    <field name="amount" readonly="1"/>
                     <field name="description"/>
 
+                </tree>
+            </field>
+        </record>
+
+    <record id="tank_operations_list" model="ir.ui.view">
+            <field name="name">km_petronad.tank_operations</field>
+            <field name="model">km_petronad.tank_operations</field>
+            <field name="arch" type="xml">
+                <tree editable="bottom">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="fluid" widget="many2many_tags"/>
                 </tree>
             </field>
         </record>
@@ -22,11 +36,23 @@
             <field name="res_model">km_petronad.storage_tanks</field>
             <field name="view_mode">tree,form</field>
     </record>
+    <record id="tank_operations_action" model="ir.actions.act_window">
+        <field name="name">Tank Operations</field>
+            <field name="res_model">km_petronad.tank_operations</field>
+            <field name="view_mode">tree</field>
+    </record>
 
     <menuitem name="Tanks"
-          sequence="21"
+          sequence="30"
           id="storage_tanks_menu"
           parent="settings_menu"
           action="storage_tanks_action"/>
+
+    <menuitem name="Tank Operations"
+          sequence="40"
+          id="tank_operations_menu"
+          parent="settings_menu"
+          action="tank_operations_action"
+          groups="base.group_system"/>
 
 </odoo>
