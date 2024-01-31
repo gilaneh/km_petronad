@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-       <record id="comments_list" model="ir.ui.view">
-            <field name="name">km_petronad.comments</field>
-            <field name="model">km_petronad.comments</field>
+    <!--    ########################################### Daily #################################################-->
+
+       <record id="comments_daily_list" model="ir.ui.view">
+            <field name="name">km_petronad.comments_daily</field>
+            <field name="model">km_petronad.comments_daily</field>
             <field name="arch" type="xml">
                 <tree >
                     <field name="comment_date"/>
@@ -12,16 +14,48 @@
             </field>
         </record>
 
-       <record id="comments_form" model="ir.ui.view">
-            <field name="name">km_petronad.comments</field>
-            <field name="model">km_petronad.comments</field>
+       <record id="comments_daily_form" model="ir.ui.view">
+            <field name="name">km_petronad.comments_daily</field>
+            <field name="model">km_petronad.comments_daily</field>
             <field name="arch" type="xml">
                 <form >
                     <sheet>
                         <group>
                             <group>
                                 <field name="comment_date"/>
+                            </group>
+                        </group>
+                        <group>
+                                <field name="description"/>
 
+                        </group>
+                    </sheet>
+
+                </form>
+            </field>
+        </record>
+<!--    ########################################### _weekly #################################################-->
+       <record id="comments_weekly_list" model="ir.ui.view">
+            <field name="name">km_petronad.comments_weekly</field>
+            <field name="model">km_petronad.comments_weekly</field>
+            <field name="arch" type="xml">
+                <tree >
+                    <field name="comment_date"/>
+                    <field name="description"/>
+
+                </tree>
+            </field>
+        </record>
+
+       <record id="comments_weekly_form" model="ir.ui.view">
+            <field name="name">km_petronad.comments_weekly</field>
+            <field name="model">km_petronad.comments_weekly</field>
+            <field name="arch" type="xml">
+                <form >
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="comment_date"/>
                             </group>
                         </group>
                         <group>
@@ -34,20 +68,43 @@
             </field>
         </record>
 
+       <record id="comments_daily_search" model="ir.ui.view">
+            <field name="name">km_petronad.comments_daily</field>
+            <field name="model">km_petronad.comments_daily</field>
+            <field name="arch" type="xml">
+                <search  >
+                    <field name="comment_date"/>
+                    <field name="description"/>
+<!--                    <filter name="recent_dates" string="Recent" domain="[('comment_date', '&gt;', (datetime.datetime.combine(context_today() + relativedelta(days=-15), datetime.time(0,0,0))).strftime('%Y-%m-%d')))]"/>-->
+                    <filter name="recent_dates1" string="Recent1" domain="[('comment_date', '&gt;', (context_today() - datetime.timedelta(days=15)).strftime('%%Y-%%m-%%d') )]"/>
+                </search>
+            </field>
+        </record>
 
+    <record id="comments_daily_action" model="ir.actions.act_window">
+        <field name="name">Comments_daily</field>
+            <field name="res_model">km_petronad.comments_daily</field>
+            <field name="view_mode">tree,form</field>
+    </record>
 
-    <record id="comments_action" model="ir.actions.act_window">
-        <field name="name">Comments</field>
-            <field name="res_model">km_petronad.comments</field>
+    <record id="comments_weekly_action" model="ir.actions.act_window">
+        <field name="name">Comments Weekly</field>
+            <field name="res_model">km_petronad.comments_weekly</field>
             <field name="view_mode">tree,form</field>
     </record>
 
 
-    <menuitem name="Comments"
+    <menuitem name="Comments Daily"
           sequence="30"
-          id="comments_menu"
+          id="comments_daily_menu"
           parent="settings_menu"
-          action="comments_action"/>
+          action="comments_daily_action"/>
+
+    <menuitem name="Comments Weekly"
+          sequence="30"
+          id="comments_weekly_menu"
+          parent="settings_menu"
+          action="comments_weekly_action"/>
 
 
 </odoo>
