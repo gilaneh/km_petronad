@@ -6,7 +6,7 @@
 
         <record id="fluids_0" model="km_petronad.fluids">
             <field name="name">FEED</field>
-            <field name="fluid_type">Feed</field>
+            <field name="fluid_type">feed</field>
         </record>
         <record id="fluids_1" model="km_petronad.fluids">
             <field name="name">MEG</field>
