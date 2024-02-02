@@ -12,7 +12,7 @@
                     <field name="asset_id"/>
                     <field name="fluid"/>
                     <field name="capacity"/>
-                    <field name="amount" readonly="1"/>
+                    <field name="amount" readonly="0"/>
                     <field name="description"/>
 
                 </tree>

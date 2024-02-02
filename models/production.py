@@ -21,8 +21,19 @@ class KmPetronadProductionRecord(models.Model):
     data_date = fields.Date()
     fluid = fields.Many2one('km_petronad.fluids')
     tank = fields.Many2one('km_petronad.storage_tanks')
+    shift = fields.Selection([('day', 'Day'), ('night', 'Night')], default='day', required=True)
+    shift_group = fields.Selection([('a', 'A'), ('b', 'B'), ('c', 'C'), ('d', 'D')], default='a', required=True)
     partner = fields.Many2one('res.partner')
+    transporter = fields.Many2one('res.partner')
+    transport_type = fields.Selection([('tanker', 'Tanker'), ('barrel', 'Barrel')], )
+    barrel_quantity = fields.Integer()
+    barrel_weight = fields.Integer()
+    driver = fields.Char()
+    car_plate = fields.Char()
+    permit_no = fields.Char()
     analysis = fields.Float()
     amount = fields.Integer()
+    unit = fields.Selection([('kg', 'Kg'), ('ton', 'Ton')], default='kg', required=True)
+
 
 

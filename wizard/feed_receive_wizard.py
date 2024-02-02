@@ -14,7 +14,7 @@ class KmPetronadFeedReceiveWizard(models.TransientModel):
     _description = 'Feed Receive Wizard'
 
     # todo: fix timezone
-    start_datetime = fields.Datetime(required=True,default=lambda self: datetime.now().replace(hour=0, minute=0, second=0) - timedelta(hours=3.5) )
+    start_datetime = fields.Datetime(required=True, default=lambda self: datetime.now().replace(hour=0, minute=0, second=0) - timedelta(hours=3.5) )
     end_datetime = fields.Datetime(required=True, default=lambda self: datetime.now().replace(hour=23, minute=59, second=59) - timedelta(hours=3.5) )
     data_date = fields.Date(required=True, default=lambda self: datetime.now() - timedelta(hours=3.5) )
 

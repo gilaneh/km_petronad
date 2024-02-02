@@ -18,14 +18,15 @@ class KmPetronadStorageTanks(models.Model):
     production_unit = fields.Many2one('km_petronad.production_unit', require=True )
     capacity = fields.Integer(require=True)
     amount = fields.Integer()
+    unit = fields.Selection([('kg', 'Kg'), ('ton', 'Ton')], default='kg', required=True)
     description = fields.Text()
 
 #     todo: there
 
-    @api.onchange('fluid')
-    def fluid_canged(self):
-        if self.amount:
-            raise ValidationError(_(f'The tank is not empty'))
+    # @api.onchange('fluid')
+    # def fluid_canged(self):
+    #     if self.amount:
+    #         raise ValidationError(_(f'The tank is not empty'))
 
 class KmPetronadTankOperations(models.Model):
     _name = 'km_petronad.tank_operations'

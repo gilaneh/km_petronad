@@ -15,11 +15,13 @@
                             <field name="data_date" />
                         </group>
                         <group>
+                            <field name="shift" />
+                            <field name="shift_group" />
 
                         </group>
                     </group>
-                    <group>
-                        <group string="">
+                    <group string="Ethylene Glycol, Unit: Kg">
+                        <group >
                             <field name="feed_usage" />
                             <field name="meg_production" />
                             <field name="deg_production" />
@@ -36,6 +38,22 @@
                             <field name="h1_tank" domain="[('fluid', '=', 'H1')]" options="{'no_create': True, 'no_open': True}" attrs="{'required': [('h1_production', '!=', 0)]}"/>
                             <field name="h2_tank" domain="[('fluid', '=', 'H2')]" options="{'no_create': True, 'no_open': True}" attrs="{'required': [('h2_production', '!=', 0)]}"/>
                             <field name="ww_tank" domain="[('fluid', '=', 'WW')]" options="{'no_create': True, 'no_open': True}" attrs="{'required': [('ww_production', '!=', 0)]}"/>
+                        </group>
+                    </group>
+                    <group string="MPG, Unit: Kg">
+                        <group>
+                            <field name="mpg_production" />
+                        </group>
+                        <group>
+                            <field name="mpg_tank" domain="[('fluid', '=', 'MPG')]" options="{'no_create': True, 'no_open': True}" attrs="{'required': [('mpg_production', '!=', 0)]}"/>
+                        </group>
+                    </group>
+                    <group string="GLYCERIN, Unit: Kg">
+                        <group>
+                            <field name="glycerin_production" />
+                        </group>
+                        <group>
+                            <field name="glycerin_tank" domain="[('fluid', '=', 'GLYCERIN')]" options="{'no_create': True, 'no_open': True}" attrs="{'required': [('glycerin_production', '!=', 0)]}"/>
                         </group>
                     </group>
 
