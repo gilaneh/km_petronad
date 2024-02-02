@@ -21,7 +21,7 @@
                     </group>
                     <group>
                         <group string="">
-                            <field name="fluid" options="{'no_create': True, 'no_open': True}" domain="[('name', 'in', ['MEG','DEG','TEG','H2'])]"/>
+                            <field name="fluid" options="{'no_create': True, 'no_open': True}" domain="[('name', 'in', ['MEG','DEG','TEG','H2', 'MPG', 'GLYCERIN'])]"/>
                             <field name="tank" domain="[('fluid', '=', fluid)]" options="{'no_create': True, 'no_open': True}" />
                             <field name="amount" />
                             <field name="buyer" options="{'no_create': True, 'no_open': True}"/>
