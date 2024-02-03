@@ -114,6 +114,7 @@ class KmPetronadDataInputWizarda(models.TransientModel):
                                         'amount': amount,
                                         'shift': shift,
                                         'shift_group': shift_group,
+                                        'register_type': 'production',
                                     })
 
     def check_capacity(self, amount, tank):

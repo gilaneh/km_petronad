@@ -35,6 +35,7 @@
         'views/tanks.xml',
         'views/fluids.xml',
         'views/production.xml',
+        'views/production_user_view.xml',
         'views/comments.xml',
         # 'wizard/report_wizard.xml',
         'wizard/data_input_wizard.xml',

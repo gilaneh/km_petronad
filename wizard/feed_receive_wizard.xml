@@ -51,7 +51,7 @@
         <menuitem name="Feed Receive"
                   sequence="20"
                   id="km_petronad_feed_receive"
-                  parent="km_petronad.petronad_menu"
+                  parent="km_petronad.data_entry_menu"
                   action="km_petronad_feed_receive_wizard_action"/>
     </data>
 </odoo>

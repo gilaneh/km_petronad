@@ -67,6 +67,7 @@ class KmPetronadProductSaleWizard(models.TransientModel):
                                         'tank': tank.id,
                                         'amount': amount,
                                         'partner': partner.id,
+                                        'register_type': 'sale',
                                     })
 
     def check_residue(self, amount, tank):

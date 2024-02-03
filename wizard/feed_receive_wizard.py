@@ -64,6 +64,7 @@ class KmPetronadFeedReceiveWizard(models.TransientModel):
                                         'amount': amount,
                                         'partner': partner.id,
                                         'analysis': analysis,
+                                        'register_type': 'feed_receive',
                                     })
 
     def check_capacity(self, amount, tank):

@@ -51,7 +51,7 @@
         <menuitem name="Product Sale"
                   sequence="20"
                   id="km_petronad_product_sale"
-                  parent="km_petronad.petronad_menu"
+                  parent="km_petronad.data_entry_menu"
                   action="km_petronad_product_sale_wizard_action"/>
     </data>
 </odoo>
