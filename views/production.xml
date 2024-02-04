@@ -66,6 +66,7 @@
           sequence="11"
           id="production_record_menu"
           parent="petronad_menu"
+              gropus="base.group_system"
           action="production_record_action"/>
 
 </odoo>
