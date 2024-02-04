@@ -18,7 +18,6 @@
                 <tree>
                     <field name="shutdown_date"/>
                     <field name="shutdown_time"/>
-                    <field name="project"/>
                     <field name="shutdown_type"/>
 <!--                    <field name="description"/>-->
                 </tree>
@@ -35,12 +34,10 @@
                         <group>
                             <group>
                                 <field name="shutdown_date"/>
-                                <field name="project"/>
-
-                            </group>
-                            <group>
                                 <field name="shutdown_time"/>
                                 <field name="shutdown_type"/>
+                            </group>
+                            <group>
 
                             </group>
                         </group>
@@ -59,7 +56,6 @@
             <field name="arch" type="xml">
                 <search >
                     <field name="shutdown_date"/>
-                    <field name="project"/>
                     <field name="shutdown_type"/>
                     <field name="description"/>
                     <filter name="this_day_shutdown" string="Today" domain="[('shutdown_date', '=', context_today().strftime('%Y-%m-%d'))]"> </filter>
@@ -88,7 +84,7 @@
     <menuitem name="Shutdown"
           sequence="22"
           id="shutdown_menu"
-          parent="data_menu"
+          parent="data_entry_menu"
           action="shutdown_action"/>
 
     <menuitem name="Shutdown Type"

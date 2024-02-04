@@ -7,14 +7,14 @@
           sequence="1"
           id="petronad_menu"  />
 
-    <menuitem name="Data Entry"
+    <menuitem name="Data View"
           sequence="10"
-          id="data_entry_menu"
+          id="data_view_menu"
           parent="petronad_menu"/>
 
-    <menuitem name="Data View"
+    <menuitem name="Data Entry"
           sequence="20"
-          id="data_view_menu"
+          id="data_entry_menu"
           parent="petronad_menu"/>
 
     <menuitem name="Settings"

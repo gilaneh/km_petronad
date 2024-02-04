@@ -48,11 +48,11 @@
           parent="settings_menu"
           action="storage_tanks_action"/>
 
-    <menuitem name="Tank Operations"
-          sequence="40"
-          id="tank_operations_menu"
-          parent="settings_menu"
-          action="tank_operations_action"
-          groups="base.group_system"/>
+<!--    <menuitem name="Tank Operations"-->
+<!--          sequence="40"-->
+<!--          id="tank_operations_menu"-->
+<!--          parent="settings_menu"-->
+<!--          action="tank_operations_action"-->
+<!--          groups="base.group_system"/>-->
 
 </odoo>

@@ -40,8 +40,8 @@ class KmPetronadDataInputWizarda(models.TransientModel):
     meg_tank = fields.Many2one('km_petronad.storage_tanks', default=lambda self: self.env['km_petronad.storage_tanks'].search([('fluid', '=', 'MEG')], limit=1))
     deg_tank = fields.Many2one('km_petronad.storage_tanks', default=lambda self: self.env['km_petronad.storage_tanks'].search([('fluid', '=', 'DEG')], limit=1))
     teg_tank = fields.Many2one('km_petronad.storage_tanks', default=lambda self: self.env['km_petronad.storage_tanks'].search([('fluid', '=', 'TEG')], limit=1))
-    h1_tank = fields.Many2one('km_petronad.storage_tanks', default=lambda self: self.env['km_petronad.storage_tanks'].search([('fluid', '=', 'H1')], limit=1))
-    h2_tank = fields.Many2one('km_petronad.storage_tanks', default=lambda self: self.env['km_petronad.storage_tanks'].search([('fluid', '=', 'H2')], limit=1))
+    h1_tank = fields.Many2one('km_petronad.storage_tanks', default=lambda self: self.env['km_petronad.storage_tanks'].search([('fluid', '=', 'HEAVY1')], limit=1))
+    h2_tank = fields.Many2one('km_petronad.storage_tanks', default=lambda self: self.env['km_petronad.storage_tanks'].search([('fluid', '=', 'HEAVY2')], limit=1))
     ww_tank = fields.Many2one('km_petronad.storage_tanks', default=lambda self: self.env['km_petronad.storage_tanks'].search([('fluid', '=', 'WW')], limit=1))
     glycerin_tank = fields.Many2one('km_petronad.storage_tanks', default=lambda self: self.env['km_petronad.storage_tanks'].search([('fluid', '=', 'GLYCERIN')], limit=1))
     mpg_tank = fields.Many2one('km_petronad.storage_tanks', default=lambda self: self.env['km_petronad.storage_tanks'].search([('fluid', '=', 'MPG')], limit=1))
@@ -68,43 +68,43 @@ class KmPetronadDataInputWizarda(models.TransientModel):
         if self.feed_usage > 0:
             self.check_residue(self.feed_usage, self.feed_tank)
             self.feed_tank.write({'amount': -1 * self.feed_usage + self.feed_tank.amount})
-            self.write_record(self.data_date, self.feed_tank.fluid.name , self.feed_tank, -1 * self.feed_usage, self.shift, self.shift_group )
+            self.write_record(self.data_date, self.feed_tank.fluid.name , self.feed_tank, self.feed_usage, self.shift, self.shift_group, 'feed_usage' )
 
         if self.meg_production > 0:
             self.check_capacity(self.meg_production, self.meg_tank)
             self.meg_tank.write({'amount': self.meg_production + self.meg_tank.amount})
-            self.write_record(self.data_date, 'MEG', self.meg_tank, self.meg_production, self.shift, self.shift_group )
+            self.write_record(self.data_date, 'MEG', self.meg_tank, self.meg_production, self.shift, self.shift_group, 'production')
         if self.deg_production > 0:
             self.check_capacity(self.deg_production, self.deg_tank)
             self.deg_tank.write({'amount': self.deg_production + self.deg_tank.amount})
-            self.write_record(self.data_date, 'DEG', self.deg_tank, self.deg_production, self.shift, self.shift_group )
+            self.write_record(self.data_date, 'DEG', self.deg_tank, self.deg_production, self.shift, self.shift_group, 'production')
         if self.teg_production > 0:
             self.check_capacity(self.teg_production, self.teg_tank)
             self.teg_tank.write({'amount': self.teg_production + self.teg_tank.amount})
-            self.write_record(self.data_date, 'TEG', self.teg_tank, self.teg_production, self.shift, self.shift_group )
+            self.write_record(self.data_date, 'TEG', self.teg_tank, self.teg_production, self.shift, self.shift_group, 'production' )
         if self.h1_production > 0:
             self.check_capacity(self.h1_production, self.h1_tank)
             self.h1_tank.write({'amount': self.h1_production + self.h1_tank.amount})
-            self.write_record(self.data_date, 'H1', self.h1_tank, self.h1_production, self.shift, self.shift_group )
+            self.write_record(self.data_date, 'H1', self.h1_tank, self.h1_production, self.shift, self.shift_group, 'production' )
         if self.h2_production > 0:
             self.check_capacity(self.h2_production, self.h2_tank)
             self.h2_tank.write({'amount': self.h2_production + self.h2_tank.amount})
-            self.write_record(self.data_date, 'H2', self.h2_tank, self.h2_production, self.shift, self.shift_group )
+            self.write_record(self.data_date, 'H2', self.h2_tank, self.h2_production, self.shift, self.shift_group, 'production' )
         if self.ww_production > 0:
             self.check_capacity(self.ww_production, self.ww_tank)
             self.ww_tank.write({'amount': self.ww_production + self.ww_tank.amount})
-            self.write_record(self.data_date, 'WW', self.ww_tank, self.ww_production, self.shift, self.shift_group )
+            self.write_record(self.data_date, 'WW', self.ww_tank, self.ww_production, self.shift, self.shift_group, 'production' )
         if self.mpg_production > 0:
             self.check_capacity(self.mpg_production, self.mpg_tank)
             self.mpg_tank.write({'amount': self.mpg_production + self.mpg_tank.amount})
-            self.write_record(self.data_date, 'MPG', self.mpg_tank, self.mpg_production, self.shift, self.shift_group )
+            self.write_record(self.data_date, 'MPG', self.mpg_tank, self.mpg_production, self.shift, self.shift_group, 'production' )
         if self.glycerin_production > 0:
             self.check_capacity(self.glycerin_production, self.glycerin_tank)
             self.glycerin_tank.write({'amount': self.glycerin_production + self.glycerin_tank.amount})
-            self.write_record(self.data_date, 'GLYCERIN', self.glycerin_tank, self.glycerin_production, self.shift, self.shift_group )
+            self.write_record(self.data_date, 'GLYCERIN', self.glycerin_tank, self.glycerin_production, self.shift, self.shift_group, 'production' )
 
 
-    def write_record(self, data_date, fluid, tank, amount, shift, shift_group):
+    def write_record(self, data_date, fluid, tank, amount, shift, shift_group,register_type):
         production_record = self.env['km_petronad.production_record']
         fluid_model = self.env['km_petronad.fluids']
         return production_record.create({
@@ -114,7 +114,7 @@ class KmPetronadDataInputWizarda(models.TransientModel):
                                         'amount': amount,
                                         'shift': shift,
                                         'shift_group': shift_group,
-                                        'register_type': 'production',
+                                        'register_type': register_type,
                                     })
 
     def check_capacity(self, amount, tank):

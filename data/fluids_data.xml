@@ -18,13 +18,19 @@
             <field name="name">TEG</field>
         </record>
         <record id="fluids_4" model="km_petronad.fluids">
-            <field name="name">H1</field>
+            <field name="name">HEAVY1</field>
         </record>
         <record id="fluids_5" model="km_petronad.fluids">
-            <field name="name">H2</field>
+            <field name="name">HEAVY2</field>
         </record>
         <record id="fluids_6" model="km_petronad.fluids">
             <field name="name">WW</field>
+        </record>
+        <record id="fluids_7" model="km_petronad.fluids">
+            <field name="name">MPG</field>
+        </record>
+        <record id="fluids_8" model="km_petronad.fluids">
+            <field name="name">GLYCERIN</field>
         </record>
 
 
