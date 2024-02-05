@@ -45,7 +45,7 @@ class KmPetronadDataInputWizarda(models.TransientModel):
     ww_tank = fields.Many2one('km_petronad.storage_tanks', default=lambda self: self.env['km_petronad.storage_tanks'].search([('fluid', '=', 'WW')], limit=1))
     glycerin_tank = fields.Many2one('km_petronad.storage_tanks', default=lambda self: self.env['km_petronad.storage_tanks'].search([('fluid', '=', 'GLYCERIN')], limit=1))
     mpg_tank = fields.Many2one('km_petronad.storage_tanks', default=lambda self: self.env['km_petronad.storage_tanks'].search([('fluid', '=', 'MPG')], limit=1))
-
+    description = fields.Html()
     #
     # #############################################################################
 
@@ -102,6 +102,11 @@ class KmPetronadDataInputWizarda(models.TransientModel):
             self.check_capacity(self.glycerin_production, self.glycerin_tank)
             self.glycerin_tank.write({'amount': self.glycerin_production + self.glycerin_tank.amount})
             self.write_record(self.data_date, 'GLYCERIN', self.glycerin_tank, self.glycerin_production, self.shift, self.shift_group, 'production' )
+        if self.description != '':
+            self.env['km_petronad.comments_daily'].create({
+                'comment_date': self.data_date,
+                'description': self.description,
+                })
 
 
     def write_record(self, data_date, fluid, tank, amount, shift, shift_group,register_type):

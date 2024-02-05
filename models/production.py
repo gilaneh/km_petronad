@@ -5,7 +5,7 @@ from datetime import date, datetime, timedelta
 import jdatetime
 import json
 from odoo.exceptions import AccessError, ValidationError, MissingError, UserError
-
+TEHRAN_TIME = 3.5
 EDIT_CONSTRAINT_DAYS = 1
 
 class KmPetronadProductionUnit(models.Model):
@@ -29,7 +29,7 @@ class KmPetronadProductionRecord(models.Model):
                                       ('sale', 'Sale'),
                                       ('feed_receive', 'Feed Receive'),
                                       ('feed_usage', 'Feed Usage'),], )
-    partner = fields.Many2one('res.partner')
+    partner = fields.Many2one('res.partner', string='Vendor/Buyer')
     transporter = fields.Many2one('res.partner')
     transport_type = fields.Selection([('tanker', 'Tanker'), ('barrel', 'Barrel')], )
     barrel_quantity = fields.Integer()
@@ -48,4 +48,18 @@ class KmPetronadProductionRecord(models.Model):
         return super(KmPetronadProductionRecord, self).write(vals)
 
 
+class KmPetronadProductionPlan(models.Model):
+    _name = 'km_petronad.production_plan'
 
+    data_date = fields.Date(required=True, default=lambda self: datetime.now() - timedelta(hours=TEHRAN_TIME) )
+    fluid = fields.Many2one( 'km_petronad.fluids', required=True)
+    plan = fields.Integer(required=True)
+    description = fields.Text( )
+
+
+    @api.model
+    def create(self, vals):
+        res = super(KmPetronadProductionPlan, self).create(vals)
+
+        print(f'PLAN create: {vals}')
+        return res

@@ -1,72 +1,121 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <odoo>
-   <record id="production_unit_list" model="ir.ui.view">
-            <field name="name">km_petronad.production_unit</field>
-            <field name="model">km_petronad.production_unit</field>
-            <field name="priority" eval="10"/>
-            <field name="arch" type="xml">
-                <tree editable="bottom">
-                    <field name="name"/>
-                    <field name="company"/>
-                    <field name="description"/>
-                </tree>
-            </field>
-        </record>
+    <!--    .......................................... Production Unit.................................-->
+    <record id="production_unit_list" model="ir.ui.view">
+        <field name="name">km_petronad.production_unit</field>
+        <field name="model">km_petronad.production_unit</field>
+        <field name="priority" eval="10"/>
+        <field name="arch" type="xml">
+            <tree editable="bottom">
+                <field name="name"/>
+                <field name="company"/>
+                <field name="description"/>
+            </tree>
+        </field>
+    </record>
 
-   <record id="production_record_list" model="ir.ui.view">
-            <field name="name">km_petronad.production_record</field>
-            <field name="model">km_petronad.production_record</field>
-            <field name="arch" type="xml">
-                <tree editable="bottom" multi_edit="1">
-                    <field name="data_date"/>
-                    <field name="fluid"/>
-                    <field name="tank"/>
-                    <field name="shift"/>
-                    <field name="shift_group"/>
-                    <field name="partner"/>
-                    <field name="register_type"/>
-                    <field name="transporter"/>
-                    <field name="transport_type"/>
-                    <field name="barrel_quantity"/>
-                    <field name="barrel_weight"/>
-                    <field name="permit_no"/>
-                    <field name="driver"/>
-                    <field name="car_plate"/>
-                    <field name="analysis"/>
-                    <field name="amount"/>
-                    <field name="unit"/>
-                </tree>
-            </field>
-        </record>
+    <!--    .......................................... Production Plan.................................-->
+
+    <record id="production_plan_list" model="ir.ui.view">
+        <field name="name">km_petronad.production_plan</field>
+        <field name="model">km_petronad.production_plan</field>
+        <field name="priority" eval="10"/>
+        <field name="arch" type="xml">
+            <tree delete="0" edit="0">
+                <field name="data_date"/>
+                <field name="fluid"/>
+                <field name="plan"/>
+                <field name="description"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="production_plan_form" model="ir.ui.view">
+        <field name="name">km_petronad.production_plan</field>
+        <field name="model">km_petronad.production_plan</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <group>
+                        <field name="data_date"/>
+                        <field name="fluid"/>
+                        <field name="plan"/>
+                    </group>
+                </group>
+                <group>
+                    <field name="description"/>
+                </group>
+            </form>
+        </field>
+    </record>
+    <!--    .......................................... Production Record.................................-->
+
+    <record id="production_record_list" model="ir.ui.view">
+        <field name="name">km_petronad.production_record</field>
+        <field name="model">km_petronad.production_record</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom" multi_edit="1">
+                <field name="data_date"/>
+                <field name="fluid"/>
+                <field name="tank"/>
+                <field name="shift"/>
+                <field name="shift_group"/>
+                <field name="partner"/>
+                <field name="register_type"/>
+                <field name="transporter"/>
+                <field name="transport_type"/>
+                <field name="barrel_quantity"/>
+                <field name="barrel_weight"/>
+                <field name="permit_no"/>
+                <field name="driver"/>
+                <field name="car_plate"/>
+                <field name="analysis"/>
+                <field name="amount"/>
+                <field name="unit"/>
+            </tree>
+        </field>
+    </record>
 
 
     <record id="production_unit_action" model="ir.actions.act_window">
         <field name="name">Production Unit</field>
-            <field name="res_model">km_petronad.production_unit</field>
-            <field name="view_mode">tree</field>
+        <field name="res_model">km_petronad.production_unit</field>
+        <field name="view_mode">tree</field>
+    </record>
+
+    <record id="production_plan_action" model="ir.actions.act_window">
+        <field name="name">Production Plan</field>
+        <field name="res_model">km_petronad.production_plan</field>
+        <field name="view_mode">tree,form</field>
     </record>
 
     <record id="production_record_action" model="ir.actions.act_window">
         <field name="name">Production Record</field>
-            <field name="res_model">km_petronad.production_record</field>
-            <field name="view_mode">tree</field>
-             <field name="view_ids" eval="[(5, 0, 0),
+        <field name="res_model">km_petronad.production_record</field>
+        <field name="view_mode">tree</field>
+        <field name="view_ids" eval="[(5, 0, 0),
                 (0, 0, {'view_mode': 'tree', 'view_id': ref('production_record_list')}),
                 ]"/>
     </record>
 
-<!--    <menuitem name="Production Unit"-->
-<!--          sequence="10"-->
-<!--          id="production_unit_menu"-->
-<!--          parent="settings_menu"-->
-<!--          action="production_unit_action"/>-->
+    <!--    <menuitem name="Production Unit"-->
+    <!--          sequence="10"-->
+    <!--          id="production_unit_menu"-->
+    <!--          parent="settings_menu"-->
+    <!--          action="production_unit_action"/>-->
 
     <menuitem name="Production Record"
-          sequence="11"
-          id="production_record_menu"
-          parent="petronad_menu"
+              sequence="11"
+              id="production_record_menu"
+              parent="petronad_menu"
               groups="base.group_system"
-          action="production_record_action"/>
+              action="production_record_action"/>
+
+    <menuitem name="Production Plan"
+              sequence="11"
+              id="production_plan_menu"
+              parent="settings_menu"
+              action="production_plan_action"/>
 
 </odoo>
