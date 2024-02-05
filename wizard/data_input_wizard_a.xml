@@ -9,53 +9,187 @@
 
                     <group>
                         <group>
-<!--                            <field name="project" options='{"no_open": True, "no_create": True}'/>-->
-                            <field name="start_datetime" invisible="1"  />
-                            <field name="end_datetime"  invisible="1"/>
-                            <field name="data_date" />
+                            <!--                            <field name="project" options='{"no_open": True, "no_create": True}'/>-->
+                            <field name="start_datetime" invisible="1"/>
+                            <field name="end_datetime" invisible="1"/>
+                            <field name="data_date"/>
                         </group>
                         <group>
-                            <field name="shift" />
-                            <field name="shift_group" />
+                            <field name="shift"/>
+                            <field name="shift_group"/>
 
                         </group>
+
                     </group>
-                    <group string="Ethylene Glycol, Unit: Kg">
-                        <group >
-                            <field name="feed_usage" />
-                            <field name="meg_production" />
-                            <field name="deg_production" />
-                            <field name="teg_production" />
-                            <field name="h1_production" />
-                            <field name="h2_production" />
-                            <field name="ww_production" />
-                        </group>
-                        <group string="">
-                            <field name="feed_tank" domain="['|', ('fluid', '=', 'FEED'),('fluid', '=', 'H1')]" options="{'no_create': True, 'no_open': True}" attrs="{'required': [('feed_usage', '!=', 0)]}"/>
-                            <field name="meg_tank" domain="[('fluid', '=', 'MEG')]" options="{'no_create': True, 'no_open': True}" attrs="{'required': [('meg_production', '!=', 0)]}"/>
-                            <field name="deg_tank" domain="[('fluid', '=', 'DEG')]" options="{'no_create': True, 'no_open': True}" attrs="{'required': [('deg_production', '!=', 0)]}"/>
-                            <field name="teg_tank" domain="[('fluid', '=', 'TEG')]" options="{'no_create': True, 'no_open': True}" attrs="{'required': [('teg_production', '!=', 0)]}"/>
-                            <field name="h1_tank" domain="[('fluid', '=', 'H1')]" options="{'no_create': True, 'no_open': True}" attrs="{'required': [('h1_production', '!=', 0)]}"/>
-                            <field name="h2_tank" domain="[('fluid', '=', 'H2')]" options="{'no_create': True, 'no_open': True}" attrs="{'required': [('h2_production', '!=', 0)]}"/>
-                            <field name="ww_tank" domain="[('fluid', '=', 'WW')]" options="{'no_create': True, 'no_open': True}" attrs="{'required': [('ww_production', '!=', 0)]}"/>
-                        </group>
+                    <div class="col-12 o_horizontal_separator">
+                        Ethylene Glycol, unit: Kg
+                    </div>
+                    <div class="row text-center">
+                        <div class="col-2">
+
+                        </div>
+                        <div class="col-3">
+                            Amount
+                        </div>
+                        <div class="col-3">
+                            Batch Number
+                        </div>
+                        <div class="col-3">
+                            Tank
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <label class="col-2" for="feed_usage"></label>
+
+                        <div class="col-3">
+                            <field name="feed_usage"/>
+                        </div>
+                        <div class="col">
+                            <field name="feed_batch_number"/>
+                        </div>
+                        <div class="col">
+                            <field name="feed_tank"
+                                   domain="['|', ('fluid', '=', 'FEED'),('fluid', '=', 'H1')]"
+                                   options="{'no_create': True, 'no_open': True}"
+                                   attrs="{'required': [('feed_usage', '!=', 0)]}"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <label class="col-2" for="meg_production"></label>
+
+                        <div class="col-3">
+                            <field name="meg_production"/>
+                        </div>
+                        <div class="col">
+                            <field name="meg_batch_number"/>
+                        </div>
+                        <div class="col">
+                            <field name="meg_tank" domain="[('fluid', '=', 'MEG')]"
+                                   options="{'no_create': True, 'no_open': True}"
+                                   attrs="{'required': [('meg_production', '!=', 0)]}"/>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="row">
+                            <label class="col-2" for="deg_production"></label>
+
+                            <div class="col-3">
+                                <field name="deg_production"/>
+                            </div>
+                            <div class="col">
+                                <field name="deg_batch_number"/>
+                            </div>
+                            <div class="col">
+                                <field name="deg_tank" domain="[('fluid', '=', 'DEG')]"
+                                       options="{'no_create': True, 'no_open': True}"
+                                       attrs="{'required': [('deg_production', '!=', 0)]}"/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <label class="col-2" for="teg_production"></label>
+
+                            <div class="col-3">
+                                <field name="teg_production"/>
+                            </div>
+                            <div class="col">
+                                <field name="teg_batch_number"/>
+                            </div>
+                            <div class="col">
+                                <field name="teg_tank" domain="[('fluid', '=', 'TEG')]"
+                                       options="{'no_create': True, 'no_open': True}"
+                                       attrs="{'required': [('teg_production', '!=', 0)]}"/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <label class="col-2" for="h1_production"></label>
+
+                            <div class="col-3">
+                                <field name="h1_production"/>
+                            </div>
+                            <div class="col">
+                                <field name="h1_batch_number"/>
+                            </div>
+                            <div class="col">
+                                <field name="h1_tank" domain="[('fluid', '=', 'HEAVY1')]"
+                                       options="{'no_create': True, 'no_open': True}"
+                                       attrs="{'required': [('h1_production', '!=', 0)]}"/>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <label class="col-2" for="h2_production"></label>
+
+                            <div class="col-3">
+                                <field name="h2_production"/>
+                            </div>
+                            <div class="col">
+                                <field name="h2_batch_number"/>
+                            </div>
+                            <div class="col">
+                                <field name="h2_tank" domain="[('fluid', '=', 'HEAVY2')]"
+                                       options="{'no_create': True, 'no_open': True}"
+                                       attrs="{'required': [('h2_production', '!=', 0)]}"/>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-12 o_horizontal_separator">
+                        MPG, unit: Kg
+                    </div>
+<!--                    <div class="row text-center">-->
+<!--                        <div class="col-2">-->
+
+<!--                        </div>-->
+<!--                        <div class="col-3">-->
+<!--                            Amount-->
+<!--                        </div>-->
+<!--                        <div class="col-3">-->
+<!--                            Batch Number-->
+<!--                        </div>-->
+<!--                        <div class="col-3">-->
+<!--                            Tank-->
+<!--                        </div>-->
+<!--                    </div>-->
+
+                    <div class="row">
+                            <label class="col-2" for="mpg_production"></label>
+
+                            <div class="col-3">
+                                <field name="mpg_production"/>
+                            </div>
+                            <div class="col">
+                                <field name="mpg_batch_number"/>
+                            </div>
+                            <div class="col">
+                                <field name="mpg_tank" domain="[('fluid', '=', 'MPG')]"
+                                       options="{'no_create': True, 'no_open': True}"
+                                       attrs="{'required': [('mpg_production', '!=', 0)]}"/>
+                            </div>
+                        </div>
+                                        <div class="col-12 o_horizontal_separator">
+                        GLYCERIN, unit: Kg
+                    </div>
+                    <div class="row">
+                            <label class="col-2" for="glycerin_production"></label>
+
+                            <div class="col-3">
+                                <field name="glycerin_production"/>
+                            </div>
+                            <div class="col">
+                                <field name="glycerin_batch_number"/>
+                            </div>
+                            <div class="col">
+                                <field name="glycerin_tank" domain="[('fluid', '=', 'GLYCERIN')]"
+                                       options="{'no_create': True, 'no_open': True}"
+                                       attrs="{'required': [('glycerin_production', '!=', 0)]}"/>
+                            </div>
+                        </div>
+                    <group>
+
+                    <field name="description" string="Daily Description"/>
                     </group>
-                    <group string="MPG, Unit: Kg">
-                        <group>
-                            <field name="mpg_production" />
-                        </group>
-                        <group>
-                            <field name="mpg_tank" domain="[('fluid', '=', 'MPG')]" options="{'no_create': True, 'no_open': True}" attrs="{'required': [('mpg_production', '!=', 0)]}"/>
-                        </group>
-                    </group>
-                    <group string="GLYCERIN, Unit: Kg">
-                        <group>
-                            <field name="glycerin_production" />
-                        </group>
-                        <group>
-                            <field name="glycerin_tank" domain="[('fluid', '=', 'GLYCERIN')]" options="{'no_create': True, 'no_open': True}" attrs="{'required': [('glycerin_production', '!=', 0)]}"/>
-                        </group>
-                    </group>
+
 
                     <footer>
                         <button name="process_data" string="Save" type="object" class="btn btn-primary"/>

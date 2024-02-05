@@ -8,6 +8,8 @@ from datetime import datetime, date
 from datetime import timedelta
 from odoo.exceptions import ValidationError, UserError
 import pytz
+
+
 # #############################################################################
 class KmPetronadDataInputWizarda(models.TransientModel):
     _name = 'km_petronad.data_input.wizard_a'
@@ -36,6 +38,17 @@ class KmPetronadDataInputWizarda(models.TransientModel):
     ww_production = fields.Integer()
     glycerin_production = fields.Integer()
     mpg_production = fields.Integer()
+
+    feed_batch_number = fields.Char()
+    meg_batch_number = fields.Char()
+    deg_batch_number = fields.Char()
+    teg_batch_number = fields.Char()
+    h1_batch_number = fields.Char()
+    h2_batch_number = fields.Char()
+    ww_batch_number = fields.Char()
+    glycerin_batch_number = fields.Char()
+    mpg_batch_number = fields.Char()
+
     feed_tank = fields.Many2one('km_petronad.storage_tanks', default=lambda self: self.env['km_petronad.storage_tanks'].search([('fluid', '=', 'FEED')], limit=1))
     meg_tank = fields.Many2one('km_petronad.storage_tanks', default=lambda self: self.env['km_petronad.storage_tanks'].search([('fluid', '=', 'MEG')], limit=1))
     deg_tank = fields.Many2one('km_petronad.storage_tanks', default=lambda self: self.env['km_petronad.storage_tanks'].search([('fluid', '=', 'DEG')], limit=1))
@@ -102,11 +115,15 @@ class KmPetronadDataInputWizarda(models.TransientModel):
             self.check_capacity(self.glycerin_production, self.glycerin_tank)
             self.glycerin_tank.write({'amount': self.glycerin_production + self.glycerin_tank.amount})
             self.write_record(self.data_date, 'GLYCERIN', self.glycerin_tank, self.glycerin_production, self.shift, self.shift_group, 'production' )
-        if self.description != '':
+
+        # todo: it only works on <p><br></p>. It cannot recognize the other ones as an empty description.
+        description = ''.join(list([c for c in self.description if c not in '' ]))
+        if description not in ['<p><br></p>', '<p></p>','<p> </p>','<p>  </p>','<p>   </p>','<p>    </p>', ]:
             self.env['km_petronad.comments_daily'].create({
                 'comment_date': self.data_date,
                 'description': self.description,
                 })
+        # print(f'\n>>>>>>>{description}<<<<<<<<\n')
 
 
     def write_record(self, data_date, fluid, tank, amount, shift, shift_group,register_type):

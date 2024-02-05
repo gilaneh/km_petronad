@@ -41,6 +41,7 @@
         'wizard/data_input_wizard.xml',
         'wizard/data_input_wizard_a.xml',
         'wizard/feed_receive_wizard.xml',
+        'wizard/fluid_move_wizard.xml',
         'wizard/product_sale_wizard.xml',
         # 'wizard/data_view_wizard.xml',
         # 'views/comments.xml',

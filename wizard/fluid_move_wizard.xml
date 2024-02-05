@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="km_petronad_fluid_move_wizard_form" model="ir.ui.view">
+            <field name="name">km_petronad.fluid_move.wizard.form</field>
+            <field name="model">km_petronad.fluid_move.wizard</field>
+            <field name="arch" type="xml">
+                <form edit="0" >
+
+                    <group>
+                        <group>
+                            <field name="data_date" />
+                            <field name="amount" />
+                            <field name="transfer_type" />
+                        </group>
+                        <group>
+
+                        </group>
+                    </group>
+                    <group>
+                        <group string="Origin">
+
+                            <field name="tank_origin" options="{'no_create': True, 'no_open': True}"
+                                   attrs="{'invisible': [('transfer_type', '=', 'barrel_to_tank')],
+                                            'required': ['|',('transfer_type', '=', 'tank_to_barrel')
+                                                        ,('transfer_type', '=', 'tank_to_tank')]}"/>
+                            <field name="tank_origin_amount"
+                                   attrs="{'invisible': [('transfer_type', '=', 'barrel_to_tank')]}" />
+                            <field name="tank_origin_capacity"
+                                   attrs="{'invisible': [('transfer_type', '=', 'barrel_to_tank')]}" />
+
+                            <field name="barrel_weight"
+                                   attrs="{'invisible': ['|',('transfer_type', '=', 'tank_to_barrel')
+                                                        ,('transfer_type', '=', 'tank_to_tank'),],
+                                            'required': [('transfer_type', '=', 'barrel_to_tank'),]}"/>
+                            <field name="barrel_quantity"
+                                   attrs="{'invisible': ['|', ('transfer_type', '=', 'tank_to_barrel')
+                                                        ,('transfer_type', '=', 'tank_to_tank')]}" />
+
+
+
+
+                        </group>
+                        <group string="Destination">
+                            <field name="tank_destination" options="{'no_create': True, 'no_open': True}"
+                                   attrs="{'invisible': [('transfer_type', '=', 'tank_to_barrel')],
+                                            'required': ['|',('transfer_type', '=', 'tank_to_tank')
+                                                        ,('transfer_type', '=', 'barrel_to_tank')]}"/>
+                            <field name="tank_destination_amount"
+                                   attrs="{'invisible': [('transfer_type', '=', 'tank_to_barrel')]}" />
+                            <field name="tank_destination_capacity"
+                                   attrs="{'invisible': [('transfer_type', '=', 'tank_to_barrel')]}" />
+
+                            <field name="barrel_weight" options="{'no_create': True, 'no_open': True}"
+                                   attrs="{'invisible': ['|',('transfer_type', '=', 'tank_to_tank')
+                                                            ,('transfer_type', '=', 'barrel_to_tank')],
+                                   'required': [('transfer_type', '=', 'tank_to_barrel')]}"/>
+                            <field name="barrel_quantity"
+                                   attrs="{'invisible': ['|',('transfer_type', '=', 'tank_to_tank')
+                                                            ,('transfer_type', '=', 'barrel_to_tank')]}" />
+
+
+
+                        </group>
+                    </group>
+                    <group>
+                        <group>
+
+                        </group>
+                            <field name="description" />
+                    </group>
+
+
+                    <footer>
+                        <button name="process_data" string="Save" type="object" class="btn btn-primary"/>
+                        <button string="Cancel" special="cancel" class="btn-secondary"/>
+                    </footer>
+
+                </form>
+            </field>
+        </record>
+
+        <record id="km_petronad_fluid_move_wizard_action" model="ir.actions.act_window">
+            <field name="name">Fluid Move</field>
+            <field name="res_model">km_petronad.fluid_move.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+
+        <menuitem name="Fluid Move"
+                  sequence="20"
+                  id="km_petronad_fluid_move"
+                  parent="km_petronad.data_entry_menu"
+                  action="km_petronad_fluid_move_wizard_action"/>
+    </data>
+</odoo>
+
