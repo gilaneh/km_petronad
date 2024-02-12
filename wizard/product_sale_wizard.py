@@ -7,6 +7,7 @@ from colorama import Fore
 from datetime import datetime, date
 from datetime import timedelta
 from odoo.exceptions import ValidationError, UserError
+import math
 import pytz
 # #############################################################################
 class KmPetronadProductSaleWizard(models.TransientModel):
@@ -33,8 +34,8 @@ class KmPetronadProductSaleWizard(models.TransientModel):
     buyer = fields.Many2one('res.partner', required=True )
     transporter = fields.Many2one('res.partner', required=True )
     transport_type = fields.Selection([('tanker', 'Tanker'), ('barrel', 'Barrel')], required=True, default='tanker')
-    barrel_quantity = fields.Integer()
-    barrel_weight = fields.Integer()
+    barrel_weight = fields.Integer(default=230)
+    barrel_quantity = fields.Integer(compute='_barrel_quantity')
     driver = fields.Char()
     car_plate = fields.Char()
     permit_no = fields.Char()
@@ -84,3 +85,6 @@ class KmPetronadProductSaleWizard(models.TransientModel):
         if amount >  tank.amount:
             raise ValidationError(_(f'The tank {tank.name} residue is {tank.amount} '))
 
+    @api.depends('amount', 'barrel_weight')
+    def _barrel_quantity(self):
+        self.barrel_quantity = math.ceil(self.amount / self.barrel_weight) if self.barrel_weight else 0

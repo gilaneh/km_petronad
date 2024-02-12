@@ -31,10 +31,10 @@
                                    options="{'no_create': True, 'no_open': True}"/>
                             <field name="tank_amount" attrs="{'invisible':[('transport_type', '=', 'barrel')]}"/>
                             <field name="tank_capacity" attrs="{'invisible':[('transport_type', '=', 'barrel')]}"/>
-                            <field name="barrel_quantity" attrs="{'invisible':[('transport_type', '=', 'tanker')],
-                                                                  'required':[('transport_type', '=', 'barrel')], }"/>
                             <field name="barrel_weight" attrs="{'invisible':[('transport_type', '=', 'tanker')],
                                                                 'required':[('transport_type', '=', 'barrel')]}"/>
+                            <field name="barrel_quantity" attrs="{'invisible':[('transport_type', '=', 'tanker')],
+                                                                  'required':[('transport_type', '=', 'barrel')], }"/>
                             <field name="buyer" options="{'no_create': True, 'no_open': True}"/>
                             <field name="transporter" options="{'no_create': True, 'no_open': True}"/>
                             <field name="permit_no"/>
