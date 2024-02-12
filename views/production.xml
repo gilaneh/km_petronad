@@ -124,7 +124,7 @@
     </record>
 
     <record id="production_record_action" model="ir.actions.act_window">
-        <field name="name">Production Record</field>
+        <field name="name">Production Record1</field>
         <field name="res_model">km_petronad.production_record</field>
         <field name="view_mode">tree</field>
         <field name="view_ids" eval="[(5, 0, 0),
@@ -138,10 +138,10 @@
     <!--          parent="settings_menu"-->
     <!--          action="production_unit_action"/>-->
 
-    <menuitem name="Production Record"
+    <menuitem name="All Production Record"
               sequence="11"
               id="production_record_menu"
-              parent="petronad_menu"
+              parent="settings_menu"
               groups="base.group_system"
               action="production_record_action"/>
 

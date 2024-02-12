@@ -3,7 +3,7 @@
 <odoo>
 <!--.............................................. user_view_production ................................-->
     <record id="production_record_user_view_production_list" model="ir.ui.view">
-        <field name="name">km_petronad.production_record</field>
+        <field name="name">Production Records</field>
         <field name="model">km_petronad.production_record</field>
         <field name="priority" eval="20"/>
         <field name="arch" type="xml">
@@ -31,7 +31,7 @@
 
 <!--.............................................. user_view_sale ................................-->
     <record id="production_record_user_view_sale_list" model="ir.ui.view">
-        <field name="name">km_petronad.production_record</field>
+        <field name="name">Sale Records</field>
         <field name="model">km_petronad.production_record</field>
         <field name="priority" eval="20"/>
         <field name="arch" type="xml">
@@ -58,7 +58,7 @@
     </record>
 <!--.............................................. user_view_feed_receive ................................-->
     <record id="production_record_user_view_feed_receive_list" model="ir.ui.view">
-        <field name="name">km_petronad.production_record</field>
+        <field name="name">Feed Receive Records</field>
         <field name="model">km_petronad.production_record</field>
         <field name="priority" eval="20"/>
         <field name="arch" type="xml">
@@ -98,7 +98,7 @@
     </record>
 
     <record id="production_record_user_view_sale_action" model="ir.actions.act_window">
-        <field name="name">Production Record</field>
+        <field name="name">Sale Records</field>
         <field name="res_model">km_petronad.production_record</field>
         <field name="view_mode">tree</field>
         <field name="domain">[('register_type', '=', 'sale')]</field>
@@ -109,7 +109,7 @@
     </record>
 
     <record id="production_record_user_view_feed_receive_action" model="ir.actions.act_window">
-        <field name="name">Production Record</field>
+        <field name="name">Feed Receive Records</field>
         <field name="res_model">km_petronad.production_record</field>
         <field name="view_mode">tree</field>
         <field name="domain">[('register_type', '=', 'feed_receive')]</field>

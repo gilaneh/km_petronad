@@ -61,7 +61,7 @@ class KmPetronadDataInputWizarda(models.TransientModel):
     h2_tank = fields.Many2one('km_petronad.storage_tanks', default=lambda self: self.env['km_petronad.storage_tanks'].search([('fluid', '=', 'HEAVY2')], limit=1))
     ww_tank = fields.Many2one('km_petronad.storage_tanks', default=lambda self: self.env['km_petronad.storage_tanks'].search([('fluid', '=', 'WW')], limit=1))
     glycerin_tank = fields.Many2one('km_petronad.storage_tanks', default=lambda self: self.env['km_petronad.storage_tanks'].search([('fluid', '=', 'GLYCERIN')], limit=1))
-    glycerin_off_tank = fields.Many2one('km_petronad.storage_tanks', default=lambda self: self.env['km_petronad.storage_tanks'].search([('fluid', '=', 'GLYCERIN off')], limit=1))
+    glycerin_off_tank = fields.Many2one('km_petronad.storage_tanks', default=lambda self: self.env['km_petronad.storage_tanks'].search([('fluid', '=', 'GLYCERIN Crude')], limit=1))
     mpg_tank = fields.Many2one('km_petronad.storage_tanks', default=lambda self: self.env['km_petronad.storage_tanks'].search([('fluid', '=', 'MPG')], limit=1))
     mpg_off_tank = fields.Many2one('km_petronad.storage_tanks', default=lambda self: self.env['km_petronad.storage_tanks'].search([('fluid', '=', 'MPG off')], limit=1))
     description = fields.Html()

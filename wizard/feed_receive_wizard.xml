@@ -41,7 +41,7 @@
                                 <field name="uk" />
 
                             </group>
-                        <group attrs="{'invisible':[('fluid_name', 'not in', ['GLYCERIN off',])]}">
+                        <group attrs="{'invisible':[('fluid_name', 'not in', ['GLYCERIN Crude',])]}">
 
 
                             <field name="water" />

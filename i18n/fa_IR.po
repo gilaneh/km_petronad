@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.0e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-04 13:00+0000\n"
-"PO-Revision-Date: 2024-02-04 16:31+0330\n"
+"POT-Creation-Date: 2024-02-12 13:57+0000\n"
+"PO-Revision-Date: 2024-02-12 17:39+0330\n"
 "Last-Translator: Arash Homayounfar <homayounfar@msn.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -27,15 +27,26 @@ msgstr ""
 #: model:ir.model.fields,field_description:km_petronad.field_km_petronad_data_input_wizard__tank2_amount
 #: model:ir.model.fields,field_description:km_petronad.field_km_petronad_data_input_wizard__tank_amount
 #: model:ir.model.fields,field_description:km_petronad.field_km_petronad_fluid_move__amount
+#: model:ir.model.fields,field_description:km_petronad.field_km_petronad_fluid_move_wizard__amount
+#: model:ir.model.fields,field_description:km_petronad.field_km_petronad_fluid_move_wizard__tank_destination_amount
+#: model:ir.model.fields,field_description:km_petronad.field_km_petronad_fluid_move_wizard__tank_origin_amount
 #: model:ir.model.fields,field_description:km_petronad.field_km_petronad_product_sale_wizard__amount
+#: model:ir.model.fields,field_description:km_petronad.field_km_petronad_product_sale_wizard__tank_amount
 #: model:ir.model.fields,field_description:km_petronad.field_km_petronad_production_record__amount
 #: model:ir.model.fields,field_description:km_petronad.field_km_petronad_storage_tanks__amount
+#: model_terms:ir.ui.view,arch_db:km_petronad.km_petronad_data_input_wizard_a_form
 msgid "Amount"
 msgstr "مقدار"
 
 #. module: km_petronad
+#: model_terms:ir.ui.view,arch_db:km_petronad.km_petronad_product_sale_wizard_form
+msgid "Amount (kg)"
+msgstr "مقدار (Kg)"
+
+#. module: km_petronad
 #: model:ir.model.fields,field_description:km_petronad.field_km_petronad_feed_receive_wizard__analysis
 #: model:ir.model.fields,field_description:km_petronad.field_km_petronad_production_record__analysis
+#: model:ir.ui.menu,name:km_petronad.analysis_menu
 msgid "Analysis"
 msgstr "آنالیز"
 
@@ -45,19 +56,34 @@ msgid "Asset"
 msgstr "دارایی"
 
 #. module: km_petronad
+#: model:ir.model.fields.selection,name:km_petronad.selection__km_petronad_product_sale_wizard__transport_type__barrel
 #: model:ir.model.fields.selection,name:km_petronad.selection__km_petronad_production_record__transport_type__barrel
 msgid "Barrel"
 msgstr "بشکه"
 
 #. module: km_petronad
+#: model:ir.model.fields,field_description:km_petronad.field_km_petronad_fluid_move_wizard__barrel_quantity
+#: model:ir.model.fields,field_description:km_petronad.field_km_petronad_product_sale_wizard__barrel_quantity
 #: model:ir.model.fields,field_description:km_petronad.field_km_petronad_production_record__barrel_quantity
 msgid "Barrel Quantity"
 msgstr "تعداد بشکه"
 
 #. module: km_petronad
+#: model:ir.model.fields,field_description:km_petronad.field_km_petronad_fluid_move_wizard__barrel_weight
+#: model:ir.model.fields,field_description:km_petronad.field_km_petronad_product_sale_wizard__barrel_weight
 #: model:ir.model.fields,field_description:km_petronad.field_km_petronad_production_record__barrel_weight
 msgid "Barrel Weight"
 msgstr "وزن بشکه"
+
+#. module: km_petronad
+#: model:ir.model.fields.selection,name:km_petronad.selection__km_petronad_fluid_move_wizard__transfer_type__barrel_to_tank
+msgid "Barrel to Tank"
+msgstr "بشکه به تانک"
+
+#. module: km_petronad
+#: model_terms:ir.ui.view,arch_db:km_petronad.km_petronad_data_input_wizard_a_form
+msgid "Batch Number"
+msgstr ""
 
 #. module: km_petronad
 #: model:ir.model.fields,field_description:km_petronad.field_km_petronad_fluid_move__buyer
@@ -69,6 +95,7 @@ msgstr "خریدار"
 #: model_terms:ir.ui.view,arch_db:km_petronad.km_petronad_data_input_wizard_a_form
 #: model_terms:ir.ui.view,arch_db:km_petronad.km_petronad_data_input_wizard_form
 #: model_terms:ir.ui.view,arch_db:km_petronad.km_petronad_feed_receive_wizard_form
+#: model_terms:ir.ui.view,arch_db:km_petronad.km_petronad_fluid_move_wizard_form
 #: model_terms:ir.ui.view,arch_db:km_petronad.km_petronad_product_sale_wizard_form
 msgid "Cancel"
 msgstr "لغو"
@@ -76,11 +103,15 @@ msgstr "لغو"
 #. module: km_petronad
 #: model:ir.model.fields,field_description:km_petronad.field_km_petronad_data_input_wizard__tank2_capacity
 #: model:ir.model.fields,field_description:km_petronad.field_km_petronad_data_input_wizard__tank_capacity
+#: model:ir.model.fields,field_description:km_petronad.field_km_petronad_fluid_move_wizard__tank_destination_capacity
+#: model:ir.model.fields,field_description:km_petronad.field_km_petronad_fluid_move_wizard__tank_origin_capacity
+#: model:ir.model.fields,field_description:km_petronad.field_km_petronad_product_sale_wizard__tank_capacity
 #: model:ir.model.fields,field_description:km_petronad.field_km_petronad_storage_tanks__capacity
 msgid "Capacity"
 msgstr "ظرفیت"
 
 #. module: km_petronad
+#: model:ir.model.fields,field_description:km_petronad.field_km_petronad_product_sale_wizard__car_plate
 #: model:ir.model.fields,field_description:km_petronad.field_km_petronad_production_record__car_plate
 msgid "Car Plate"
 msgstr "شماره پلاک"
@@ -124,6 +155,7 @@ msgid "Company"
 msgstr "شرکت"
 
 #. module: km_petronad
+#: model:ir.model.fields,field_description:km_petronad.field_km_petronad_analysis__create_uid
 #: model:ir.model.fields,field_description:km_petronad.field_km_petronad_comments__create_uid
 #: model:ir.model.fields,field_description:km_petronad.field_km_petronad_comments_daily__create_uid
 #: model:ir.model.fields,field_description:km_petronad.field_km_petronad_comments_weekly__create_uid
@@ -131,6 +163,7 @@ msgstr "شرکت"
 #: model:ir.model.fields,field_description:km_petronad.field_km_petronad_data_input_wizard_a__create_uid
 #: model:ir.model.fields,field_description:km_petronad.field_km_petronad_feed_receive_wizard__create_uid
 #: model:ir.model.fields,field_description:km_petronad.field_km_petronad_fluid_move__create_uid
+#: model:ir.model.fields,field_description:km_petronad.field_km_petronad_fluid_move_wizard__create_uid
 #: model:ir.model.fields,field_description:km_petronad.field_km_petronad_fluids__create_uid
 #: model:ir.model.fields,field_description:km_petronad.field_km_petronad_product_sale_wizard__create_uid
 #: model:ir.model.fields,field_description:km_petronad.field_km_petronad_production_plan__create_uid
@@ -144,6 +177,7 @@ msgid "Created by"
 msgstr ""
 
 #. module: km_petronad
+#: model:ir.model.fields,field_description:km_petronad.field_km_petronad_analysis__create_date
 #: model:ir.model.fields,field_description:km_petronad.field_km_petronad_comments__create_date
 #: model:ir.model.fields,field_description:km_petronad.field_km_petronad_comments_daily__create_date
 #: model:ir.model.fields,field_description:km_petronad.field_km_petronad_comments_weekly__create_date
@@ -151,6 +185,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:km_petronad.field_km_petronad_data_input_wizard_a__create_date
 #: model:ir.model.fields,field_description:km_petronad.field_km_petronad_feed_receive_wizard__create_date
 #: model:ir.model.fields,field_description:km_petronad.field_km_petronad_fluid_move__create_date
+#: model:ir.model.fields,field_description:km_petronad.field_km_petronad_fluid_move_wizard__create_date
 #: model:ir.model.fields,field_description:km_petronad.field_km_petronad_fluids__create_date
 #: model:ir.model.fields,field_description:km_petronad.field_km_petronad_product_sale_wizard__create_date
 #: model:ir.model.fields,field_description:km_petronad.field_km_petronad_production_plan__create_date
@@ -164,8 +199,14 @@ msgid "Created on"
 msgstr ""
 
 #. module: km_petronad
+#: model_terms:ir.ui.view,arch_db:km_petronad.km_petronad_data_input_wizard_a_form
+msgid "Daily Description"
+msgstr "موضوعات مهم روز"
+
+#. module: km_petronad
 #: model:ir.model.fields,field_description:km_petronad.field_km_petronad_data_input_wizard_a__data_date
 #: model:ir.model.fields,field_description:km_petronad.field_km_petronad_feed_receive_wizard__data_date
+#: model:ir.model.fields,field_description:km_petronad.field_km_petronad_fluid_move_wizard__data_date
 #: model:ir.model.fields,field_description:km_petronad.field_km_petronad_product_sale_wizard__data_date
 #: model:ir.model.fields,field_description:km_petronad.field_km_petronad_production_plan__data_date
 #: model:ir.model.fields,field_description:km_petronad.field_km_petronad_production_record__data_date
@@ -181,7 +222,7 @@ msgstr "ورود اطلاعات"
 #: model:ir.actions.act_window,name:km_petronad.km_petronad_data_input_wizard_a_action
 #: model:ir.actions.act_window,name:km_petronad.km_petronad_data_input_wizard_action
 msgid "Data Input"
-msgstr "تاریخ ثبت"
+msgstr "ثبت داده های تولید"
 
 #. module: km_petronad
 #: model:ir.ui.menu,name:km_petronad.data_view_menu
@@ -205,6 +246,11 @@ msgid "Day"
 msgstr "روز"
 
 #. module: km_petronad
+#: model:ir.model.fields,field_description:km_petronad.field_km_petronad_data_input_wizard_a__deg_batch_number
+msgid "Deg Batch Number"
+msgstr ""
+
+#. module: km_petronad
 #: model:ir.model.fields,field_description:km_petronad.field_km_petronad_data_input_wizard_a__deg_production
 msgid "Deg Production"
 msgstr "تولید DEG"
@@ -220,6 +266,7 @@ msgstr "تانک DEG"
 #: model:ir.model.fields,field_description:km_petronad.field_km_petronad_comments_weekly__description
 #: model:ir.model.fields,field_description:km_petronad.field_km_petronad_data_input_wizard_a__description
 #: model:ir.model.fields,field_description:km_petronad.field_km_petronad_fluid_move__description
+#: model:ir.model.fields,field_description:km_petronad.field_km_petronad_fluid_move_wizard__description
 #: model:ir.model.fields,field_description:km_petronad.field_km_petronad_fluids__description
 #: model:ir.model.fields,field_description:km_petronad.field_km_petronad_production_plan__description
 #: model:ir.model.fields,field_description:km_petronad.field_km_petronad_production_unit__description
@@ -230,10 +277,12 @@ msgstr "توضیحات"
 
 #. module: km_petronad
 #: model:ir.model.fields,field_description:km_petronad.field_km_petronad_data_input_wizard__destination
+#: model_terms:ir.ui.view,arch_db:km_petronad.km_petronad_fluid_move_wizard_form
 msgid "Destination"
 msgstr "مقصد"
 
 #. module: km_petronad
+#: model:ir.model.fields,field_description:km_petronad.field_km_petronad_analysis__display_name
 #: model:ir.model.fields,field_description:km_petronad.field_km_petronad_comments__display_name
 #: model:ir.model.fields,field_description:km_petronad.field_km_petronad_comments_daily__display_name
 #: model:ir.model.fields,field_description:km_petronad.field_km_petronad_comments_weekly__display_name
@@ -241,6 +290,7 @@ msgstr "مقصد"
 #: model:ir.model.fields,field_description:km_petronad.field_km_petronad_data_input_wizard_a__display_name
 #: model:ir.model.fields,field_description:km_petronad.field_km_petronad_feed_receive_wizard__display_name
 #: model:ir.model.fields,field_description:km_petronad.field_km_petronad_fluid_move__display_name
+#: model:ir.model.fields,field_description:km_petronad.field_km_petronad_fluid_move_wizard__display_name
 #: model:ir.model.fields,field_description:km_petronad.field_km_petronad_fluids__display_name
 #: model:ir.model.fields,field_description:km_petronad.field_km_petronad_product_sale_wizard__display_name
 #: model:ir.model.fields,field_description:km_petronad.field_km_petronad_production_plan__display_name
@@ -254,6 +304,7 @@ msgid "Display Name"
 msgstr ""
 
 #. module: km_petronad
+#: model:ir.model.fields,field_description:km_petronad.field_km_petronad_product_sale_wizard__driver
 #: model:ir.model.fields,field_description:km_petronad.field_km_petronad_production_record__driver
 msgid "Driver"
 msgstr "راننده"
@@ -268,13 +319,18 @@ msgstr "تاریخ پایان"
 
 #. module: km_petronad
 #: model_terms:ir.ui.view,arch_db:km_petronad.km_petronad_data_input_wizard_a_form
-msgid "Ethylene Glycol, Unit: Kg"
+msgid "Ethylene Glycol, unit: Kg"
 msgstr "اتیلن گلایکل، واحد کیلوگرم"
 
 #. module: km_petronad
 #: model:ir.model.fields.selection,name:km_petronad.selection__km_petronad_fluids__fluid_type__feed
 msgid "Feed"
 msgstr "خوراک"
+
+#. module: km_petronad
+#: model:ir.model.fields,field_description:km_petronad.field_km_petronad_data_input_wizard_a__feed_batch_number
+msgid "Feed Batch Number"
+msgstr ""
 
 #. module: km_petronad
 #: model_terms:ir.ui.view,arch_db:km_petronad.km_petronad_data_input_wizard_form
@@ -288,12 +344,13 @@ msgstr "خوراک ورودی/خروجی"
 #: model:ir.model.fields.selection,name:km_petronad.selection__km_petronad_production_record__register_type__feed_receive
 #: model:ir.ui.menu,name:km_petronad.km_petronad_feed_receive
 msgid "Feed Receive"
-msgstr "خوراک دریافتی"
+msgstr "ثبت خوراک دریافتی"
 
 #. module: km_petronad
+#: model:ir.actions.act_window,name:km_petronad.production_record_user_view_feed_receive_action
 #: model:ir.ui.menu,name:km_petronad.production_record_user_view_feed_receive_menu
 msgid "Feed Receive Records"
-msgstr "رکورد دریافت خوراک"
+msgstr "خوراک دریافتی"
 
 #. module: km_petronad
 #: model:ir.model,name:km_petronad.model_km_petronad_feed_receive_wizard
@@ -314,7 +371,9 @@ msgid "Feed Usage"
 msgstr "خوراک مصرفی"
 
 #. module: km_petronad
+#: model:ir.model.fields,field_description:km_petronad.field_km_petronad_analysis__fluid
 #: model:ir.model.fields,field_description:km_petronad.field_km_petronad_data_input_wizard__fluid
+#: model:ir.model.fields,field_description:km_petronad.field_km_petronad_feed_receive_wizard__fluid
 #: model:ir.model.fields,field_description:km_petronad.field_km_petronad_fluid_move__fluid
 #: model:ir.model.fields,field_description:km_petronad.field_km_petronad_product_sale_wizard__fluid
 #: model:ir.model.fields,field_description:km_petronad.field_km_petronad_production_plan__fluid
@@ -328,7 +387,18 @@ msgstr "مواد"
 #. module: km_petronad
 #: model:ir.actions.act_window,name:km_petronad.fluids_action
 msgid "Fluid Data"
-msgstr "تاریخ مواد"
+msgstr "مواد"
+
+#. module: km_petronad
+#: model:ir.actions.act_window,name:km_petronad.km_petronad_fluid_move_wizard_action
+#: model:ir.ui.menu,name:km_petronad.km_petronad_fluid_move
+msgid "Fluid Move"
+msgstr "انتقال مواد"
+
+#. module: km_petronad
+#: model:ir.model,name:km_petronad.model_km_petronad_fluid_move_wizard
+msgid "Fluid Move Wizard"
+msgstr ""
 
 #. module: km_petronad
 #: model:ir.model.fields,field_description:km_petronad.field_km_petronad_fluids__fluid_type
@@ -337,8 +407,34 @@ msgstr "نوع مواد"
 
 #. module: km_petronad
 #: model_terms:ir.ui.view,arch_db:km_petronad.km_petronad_data_input_wizard_a_form
-msgid "GLYCERIN, Unit: Kg"
+msgid "GLYCERIN, unit: Kg"
 msgstr "گلیسیرین، واحد کیلوگرم"
+
+#. module: km_petronad
+#: model:ir.model.fields,field_description:km_petronad.field_km_petronad_analysis__glycerin
+#: model:ir.model.fields,field_description:km_petronad.field_km_petronad_feed_receive_wizard__glycerin
+msgid "Glycerin"
+msgstr "گلیسیرین"
+
+#. module: km_petronad
+#: model:ir.model.fields,field_description:km_petronad.field_km_petronad_data_input_wizard_a__glycerin_batch_number
+msgid "Glycerin Batch Number"
+msgstr ""
+
+#. module: km_petronad
+#: model:ir.model.fields,field_description:km_petronad.field_km_petronad_data_input_wizard_a__glycerin_off_batch_number
+msgid "Glycerin Off Batch Number"
+msgstr ""
+
+#. module: km_petronad
+#: model:ir.model.fields,field_description:km_petronad.field_km_petronad_data_input_wizard_a__glycerin_off_tank
+msgid "Glycerin Off Tank"
+msgstr ""
+
+#. module: km_petronad
+#: model:ir.model.fields,field_description:km_petronad.field_km_petronad_data_input_wizard_a__glycerin_off_usage
+msgid "Glycerin Off Usage"
+msgstr ""
 
 #. module: km_petronad
 #: model:ir.model.fields,field_description:km_petronad.field_km_petronad_data_input_wizard_a__glycerin_production
@@ -351,6 +447,11 @@ msgid "Glycerin Tank"
 msgstr "تانک گلیسیرین"
 
 #. module: km_petronad
+#: model:ir.model.fields,field_description:km_petronad.field_km_petronad_data_input_wizard_a__h1_batch_number
+msgid "H1 Batch Number"
+msgstr ""
+
+#. module: km_petronad
 #: model:ir.model.fields,field_description:km_petronad.field_km_petronad_data_input_wizard_a__h1_production
 msgid "H1 Production"
 msgstr "تولید H1"
@@ -359,6 +460,11 @@ msgstr "تولید H1"
 #: model:ir.model.fields,field_description:km_petronad.field_km_petronad_data_input_wizard_a__h1_tank
 msgid "H1 Tank"
 msgstr "تانک H1"
+
+#. module: km_petronad
+#: model:ir.model.fields,field_description:km_petronad.field_km_petronad_data_input_wizard_a__h2_batch_number
+msgid "H2 Batch Number"
+msgstr ""
 
 #. module: km_petronad
 #: model:ir.model.fields,field_description:km_petronad.field_km_petronad_data_input_wizard_a__h2_production
@@ -371,6 +477,7 @@ msgid "H2 Tank"
 msgstr "تانک H2"
 
 #. module: km_petronad
+#: model:ir.model.fields,field_description:km_petronad.field_km_petronad_analysis__id
 #: model:ir.model.fields,field_description:km_petronad.field_km_petronad_comments__id
 #: model:ir.model.fields,field_description:km_petronad.field_km_petronad_comments_daily__id
 #: model:ir.model.fields,field_description:km_petronad.field_km_petronad_comments_weekly__id
@@ -378,6 +485,7 @@ msgstr "تانک H2"
 #: model:ir.model.fields,field_description:km_petronad.field_km_petronad_data_input_wizard_a__id
 #: model:ir.model.fields,field_description:km_petronad.field_km_petronad_feed_receive_wizard__id
 #: model:ir.model.fields,field_description:km_petronad.field_km_petronad_fluid_move__id
+#: model:ir.model.fields,field_description:km_petronad.field_km_petronad_fluid_move_wizard__id
 #: model:ir.model.fields,field_description:km_petronad.field_km_petronad_fluids__id
 #: model:ir.model.fields,field_description:km_petronad.field_km_petronad_product_sale_wizard__id
 #: model:ir.model.fields,field_description:km_petronad.field_km_petronad_production_plan__id
@@ -404,6 +512,7 @@ msgid "Kg"
 msgstr ""
 
 #. module: km_petronad
+#: model:ir.model.fields,field_description:km_petronad.field_km_petronad_analysis____last_update
 #: model:ir.model.fields,field_description:km_petronad.field_km_petronad_comments____last_update
 #: model:ir.model.fields,field_description:km_petronad.field_km_petronad_comments_daily____last_update
 #: model:ir.model.fields,field_description:km_petronad.field_km_petronad_comments_weekly____last_update
@@ -411,6 +520,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:km_petronad.field_km_petronad_data_input_wizard_a____last_update
 #: model:ir.model.fields,field_description:km_petronad.field_km_petronad_feed_receive_wizard____last_update
 #: model:ir.model.fields,field_description:km_petronad.field_km_petronad_fluid_move____last_update
+#: model:ir.model.fields,field_description:km_petronad.field_km_petronad_fluid_move_wizard____last_update
 #: model:ir.model.fields,field_description:km_petronad.field_km_petronad_fluids____last_update
 #: model:ir.model.fields,field_description:km_petronad.field_km_petronad_product_sale_wizard____last_update
 #: model:ir.model.fields,field_description:km_petronad.field_km_petronad_production_plan____last_update
@@ -424,6 +534,7 @@ msgid "Last Modified on"
 msgstr ""
 
 #. module: km_petronad
+#: model:ir.model.fields,field_description:km_petronad.field_km_petronad_analysis__write_uid
 #: model:ir.model.fields,field_description:km_petronad.field_km_petronad_comments__write_uid
 #: model:ir.model.fields,field_description:km_petronad.field_km_petronad_comments_daily__write_uid
 #: model:ir.model.fields,field_description:km_petronad.field_km_petronad_comments_weekly__write_uid
@@ -431,6 +542,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:km_petronad.field_km_petronad_data_input_wizard_a__write_uid
 #: model:ir.model.fields,field_description:km_petronad.field_km_petronad_feed_receive_wizard__write_uid
 #: model:ir.model.fields,field_description:km_petronad.field_km_petronad_fluid_move__write_uid
+#: model:ir.model.fields,field_description:km_petronad.field_km_petronad_fluid_move_wizard__write_uid
 #: model:ir.model.fields,field_description:km_petronad.field_km_petronad_fluids__write_uid
 #: model:ir.model.fields,field_description:km_petronad.field_km_petronad_product_sale_wizard__write_uid
 #: model:ir.model.fields,field_description:km_petronad.field_km_petronad_production_plan__write_uid
@@ -444,6 +556,7 @@ msgid "Last Updated by"
 msgstr ""
 
 #. module: km_petronad
+#: model:ir.model.fields,field_description:km_petronad.field_km_petronad_analysis__write_date
 #: model:ir.model.fields,field_description:km_petronad.field_km_petronad_comments__write_date
 #: model:ir.model.fields,field_description:km_petronad.field_km_petronad_comments_daily__write_date
 #: model:ir.model.fields,field_description:km_petronad.field_km_petronad_comments_weekly__write_date
@@ -451,6 +564,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:km_petronad.field_km_petronad_data_input_wizard_a__write_date
 #: model:ir.model.fields,field_description:km_petronad.field_km_petronad_feed_receive_wizard__write_date
 #: model:ir.model.fields,field_description:km_petronad.field_km_petronad_fluid_move__write_date
+#: model:ir.model.fields,field_description:km_petronad.field_km_petronad_fluid_move_wizard__write_date
 #: model:ir.model.fields,field_description:km_petronad.field_km_petronad_fluids__write_date
 #: model:ir.model.fields,field_description:km_petronad.field_km_petronad_product_sale_wizard__write_date
 #: model:ir.model.fields,field_description:km_petronad.field_km_petronad_production_plan__write_date
@@ -470,8 +584,13 @@ msgstr "مکان"
 
 #. module: km_petronad
 #: model_terms:ir.ui.view,arch_db:km_petronad.km_petronad_data_input_wizard_a_form
-msgid "MPG, Unit: Kg"
+msgid "MPG, unit: Kg"
 msgstr "MPG، واحد: کیلوگرم"
+
+#. module: km_petronad
+#: model:ir.model.fields,field_description:km_petronad.field_km_petronad_data_input_wizard_a__meg_batch_number
+msgid "Meg Batch Number"
+msgstr ""
 
 #. module: km_petronad
 #: model:ir.model.fields,field_description:km_petronad.field_km_petronad_data_input_wizard_a__meg_production
@@ -484,13 +603,45 @@ msgid "Meg Tank"
 msgstr "تانک MEG"
 
 #. module: km_petronad
+#: model:ir.model.fields,field_description:km_petronad.field_km_petronad_analysis__methanol
+#: model:ir.model.fields,field_description:km_petronad.field_km_petronad_feed_receive_wizard__methanol
+msgid "Methanol"
+msgstr ""
+
+#. module: km_petronad
+#: model:ir.model.fields,field_description:km_petronad.field_km_petronad_analysis__mong
+#: model:ir.model.fields,field_description:km_petronad.field_km_petronad_feed_receive_wizard__mong
+msgid "Mong"
+msgstr ""
+
+#. module: km_petronad
 #: model:ir.model.fields,field_description:km_petronad.field_km_petronad_fluid_move__move_date
 msgid "Move Date"
-msgstr ""
+msgstr "تاریخ انتقال"
 
 #. module: km_petronad
 #: model:ir.model.fields.selection,name:km_petronad.selection__km_petronad_fluid_move__operation__movement
 msgid "Movement"
+msgstr "انتقال"
+
+#. module: km_petronad
+#: model:ir.model.fields,field_description:km_petronad.field_km_petronad_data_input_wizard_a__mpg_batch_number
+msgid "Mpg Batch Number"
+msgstr ""
+
+#. module: km_petronad
+#: model:ir.model.fields,field_description:km_petronad.field_km_petronad_data_input_wizard_a__mpg_off_batch_number
+msgid "Mpg Off Batch Number"
+msgstr ""
+
+#. module: km_petronad
+#: model:ir.model.fields,field_description:km_petronad.field_km_petronad_data_input_wizard_a__mpg_off_tank
+msgid "Mpg Off Tank"
+msgstr ""
+
+#. module: km_petronad
+#: model:ir.model.fields,field_description:km_petronad.field_km_petronad_data_input_wizard_a__mpg_off_usage
+msgid "Mpg Off Usage"
 msgstr ""
 
 #. module: km_petronad
@@ -504,6 +655,13 @@ msgid "Mpg Tank"
 msgstr "تانک MPG"
 
 #. module: km_petronad
+#: model:ir.model.fields,field_description:km_petronad.field_km_petronad_analysis__nacl
+#: model:ir.model.fields,field_description:km_petronad.field_km_petronad_feed_receive_wizard__nacl
+msgid "Nacl"
+msgstr ""
+
+#. module: km_petronad
+#: model:ir.model.fields,field_description:km_petronad.field_km_petronad_feed_receive_wizard__fluid_name
 #: model:ir.model.fields,field_description:km_petronad.field_km_petronad_fluids__name
 #: model:ir.model.fields,field_description:km_petronad.field_km_petronad_production_unit__name
 #: model:ir.model.fields,field_description:km_petronad.field_km_petronad_shutdown_type__name
@@ -536,6 +694,12 @@ msgid "Operators"
 msgstr ""
 
 #. module: km_petronad
+#: model_terms:ir.ui.view,arch_db:km_petronad.km_petronad_fluid_move_wizard_form
+msgid "Origin"
+msgstr "مبدا"
+
+#. module: km_petronad
+#: model:ir.model.fields,field_description:km_petronad.field_km_petronad_product_sale_wizard__permit_no
 #: model:ir.model.fields,field_description:km_petronad.field_km_petronad_production_record__permit_no
 msgid "Permit No"
 msgstr "شماره مجوز"
@@ -550,6 +714,12 @@ msgstr "پتروناد"
 #: code:addons/km_petronad/static/src/components/dashboard_view.xml:0
 #, python-format
 msgid "Petronad Dashboard"
+msgstr ""
+
+#. module: km_petronad
+#: model:ir.model.fields,field_description:km_petronad.field_km_petronad_analysis__ph
+#: model:ir.model.fields,field_description:km_petronad.field_km_petronad_feed_receive_wizard__ph
+msgid "Ph"
 msgstr ""
 
 #. module: km_petronad
@@ -572,7 +742,7 @@ msgstr "محصول"
 #: model:ir.actions.act_window,name:km_petronad.km_petronad_product_sale_wizard_action
 #: model:ir.ui.menu,name:km_petronad.km_petronad_product_sale
 msgid "Product Sale"
-msgstr "فروش تولید"
+msgstr "ثبت داده های فروش"
 
 #. module: km_petronad
 #: model:ir.model,name:km_petronad.model_km_petronad_product_sale_wizard
@@ -580,11 +750,17 @@ msgid "Product Sale Wizard"
 msgstr ""
 
 #. module: km_petronad
+#: model:ir.model.fields,field_description:km_petronad.field_km_petronad_analysis__production
 #: model:ir.model.fields.selection,name:km_petronad.selection__km_petronad_fluid_move__operation__production
 #: model:ir.model.fields.selection,name:km_petronad.selection__km_petronad_production_record__register_type__production
 #: model:ir.ui.menu,name:km_petronad.km_petronad_data_input_a
 msgid "Production"
-msgstr "ثبت تولید"
+msgstr "تولید"
+
+#. module: km_petronad
+#: model:ir.actions.act_window,name:km_petronad.analysis_action
+msgid "Production Analysis"
+msgstr ""
 
 #. module: km_petronad
 #: model:ir.actions.act_window,name:km_petronad.production_plan_action
@@ -593,18 +769,20 @@ msgid "Production Plan"
 msgstr "برنامه تولید"
 
 #. module: km_petronad
-#: model:ir.actions.act_window,name:km_petronad.production_record_action
-#: model:ir.actions.act_window,name:km_petronad.production_record_user_view_feed_receive_action
 #: model:ir.actions.act_window,name:km_petronad.production_record_user_view_production_action
-#: model:ir.actions.act_window,name:km_petronad.production_record_user_view_sale_action
 #: model:ir.ui.menu,name:km_petronad.production_record_menu
 msgid "Production Record"
-msgstr "تولیدات"
+msgstr "داده های تولید"
+
+#. module: km_petronad
+#: model:ir.actions.act_window,name:km_petronad.production_record_action
+msgid "Production Record1"
+msgstr "داده های تولید"
 
 #. module: km_petronad
 #: model:ir.ui.menu,name:km_petronad.production_record_user_view_production_menu
 msgid "Production Records"
-msgstr "رکوردهای تولید"
+msgstr "داده های تولید"
 
 #. module: km_petronad
 #: model:ir.actions.act_window,name:km_petronad.production_unit_action
@@ -645,14 +823,22 @@ msgid "Sale"
 msgstr "فروش"
 
 #. module: km_petronad
+#: model:ir.actions.act_window,name:km_petronad.production_record_user_view_sale_action
 #: model:ir.ui.menu,name:km_petronad.production_record_user_view_sale_menu
 msgid "Sale Records"
-msgstr "رکورد فروش"
+msgstr "داده های فروش"
+
+#. module: km_petronad
+#: model:ir.model.fields,field_description:km_petronad.field_km_petronad_analysis__salt
+#: model:ir.model.fields,field_description:km_petronad.field_km_petronad_feed_receive_wizard__salt
+msgid "Salt"
+msgstr ""
 
 #. module: km_petronad
 #: model_terms:ir.ui.view,arch_db:km_petronad.km_petronad_data_input_wizard_a_form
 #: model_terms:ir.ui.view,arch_db:km_petronad.km_petronad_data_input_wizard_form
 #: model_terms:ir.ui.view,arch_db:km_petronad.km_petronad_feed_receive_wizard_form
+#: model_terms:ir.ui.view,arch_db:km_petronad.km_petronad_fluid_move_wizard_form
 #: model_terms:ir.ui.view,arch_db:km_petronad.km_petronad_product_sale_wizard_form
 msgid "Save"
 msgstr "ذخیره"
@@ -718,6 +904,7 @@ msgstr "زمان شروع"
 #: model:ir.model.fields,field_description:km_petronad.field_km_petronad_data_input_wizard__tank
 #: model:ir.model.fields,field_description:km_petronad.field_km_petronad_product_sale_wizard__tank
 #: model:ir.model.fields,field_description:km_petronad.field_km_petronad_production_record__tank
+#: model_terms:ir.ui.view,arch_db:km_petronad.km_petronad_data_input_wizard_a_form
 msgid "Tank"
 msgstr "تانک"
 
@@ -727,9 +914,29 @@ msgid "Tank Date"
 msgstr "تاریخ تانک"
 
 #. module: km_petronad
+#: model:ir.model.fields,field_description:km_petronad.field_km_petronad_fluid_move_wizard__tank_destination
+msgid "Tank Destination"
+msgstr "تانک مقصد"
+
+#. module: km_petronad
 #: model:ir.actions.act_window,name:km_petronad.tank_operations_action
 msgid "Tank Operations"
 msgstr "عملیات تانک"
+
+#. module: km_petronad
+#: model:ir.model.fields,field_description:km_petronad.field_km_petronad_fluid_move_wizard__tank_origin
+msgid "Tank Origin"
+msgstr "تانک مبدا"
+
+#. module: km_petronad
+#: model:ir.model.fields.selection,name:km_petronad.selection__km_petronad_fluid_move_wizard__transfer_type__tank_to_barrel
+msgid "Tank to Barrel"
+msgstr "تانک به بشکه"
+
+#. module: km_petronad
+#: model:ir.model.fields.selection,name:km_petronad.selection__km_petronad_fluid_move_wizard__transfer_type__tank_to_tank
+msgid "Tank to Tank"
+msgstr "تانک به تانک"
 
 #. module: km_petronad
 #: model:ir.model.fields,field_description:km_petronad.field_km_petronad_data_input_wizard__tank2
@@ -737,6 +944,7 @@ msgid "Tank2"
 msgstr ""
 
 #. module: km_petronad
+#: model:ir.model.fields.selection,name:km_petronad.selection__km_petronad_product_sale_wizard__transport_type__tanker
 #: model:ir.model.fields.selection,name:km_petronad.selection__km_petronad_production_record__transport_type__tanker
 msgid "Tanker"
 msgstr "تانکر"
@@ -747,6 +955,11 @@ msgid "Tanks"
 msgstr "تانک ها"
 
 #. module: km_petronad
+#: model:ir.model.fields,field_description:km_petronad.field_km_petronad_data_input_wizard_a__teg_batch_number
+msgid "Teg Batch Number"
+msgstr ""
+
+#. module: km_petronad
 #: model:ir.model.fields,field_description:km_petronad.field_km_petronad_data_input_wizard_a__teg_production
 msgid "Teg Production"
 msgstr "تولید TEG"
@@ -754,7 +967,7 @@ msgstr "تولید TEG"
 #. module: km_petronad
 #: model:ir.model.fields,field_description:km_petronad.field_km_petronad_data_input_wizard_a__teg_tank
 msgid "Teg Tank"
-msgstr "تانک TEG"
+msgstr ""
 
 #. module: km_petronad
 #: model_terms:ir.ui.view,arch_db:km_petronad.shutdown_search
@@ -774,19 +987,38 @@ msgid "Transfer"
 msgstr "انتقال"
 
 #. module: km_petronad
+#: model:ir.model.fields,field_description:km_petronad.field_km_petronad_fluid_move_wizard__transfer_type
+msgid "Transfer Type"
+msgstr "نوع انتقال"
+
+#. module: km_petronad
+#: model:ir.model.fields,field_description:km_petronad.field_km_petronad_product_sale_wizard__transport_type
 #: model:ir.model.fields,field_description:km_petronad.field_km_petronad_production_record__transport_type
 msgid "Transport Type"
 msgstr "نوع حمل"
 
 #. module: km_petronad
+#: model:ir.model.fields,field_description:km_petronad.field_km_petronad_product_sale_wizard__transporter
 #: model:ir.model.fields,field_description:km_petronad.field_km_petronad_production_record__transporter
 msgid "Transporter"
 msgstr "شرکت حمل و نقل"
 
 #. module: km_petronad
+#: model:ir.model.fields,field_description:km_petronad.field_km_petronad_analysis__tt
+#: model:ir.model.fields,field_description:km_petronad.field_km_petronad_feed_receive_wizard__tt
+msgid "Tt"
+msgstr ""
+
+#. module: km_petronad
 #: model_terms:ir.ui.view,arch_db:km_petronad.shutdown_search
 msgid "Types"
 msgstr "انواع"
+
+#. module: km_petronad
+#: model:ir.model.fields,field_description:km_petronad.field_km_petronad_analysis__uk
+#: model:ir.model.fields,field_description:km_petronad.field_km_petronad_feed_receive_wizard__uk
+msgid "Uk"
+msgstr ""
 
 #. module: km_petronad
 #: model:ir.model.fields,field_description:km_petronad.field_km_petronad_production_record__unit
@@ -811,6 +1043,17 @@ msgid "Vendor/Buyer"
 msgstr "تامین کننده / خریدار"
 
 #. module: km_petronad
+#: model:ir.model.fields,field_description:km_petronad.field_km_petronad_analysis__water
+#: model:ir.model.fields,field_description:km_petronad.field_km_petronad_feed_receive_wizard__water
+msgid "Water"
+msgstr ""
+
+#. module: km_petronad
+#: model:ir.model.fields,field_description:km_petronad.field_km_petronad_data_input_wizard_a__ww_batch_number
+msgid "Ww Batch Number"
+msgstr ""
+
+#. module: km_petronad
 #: model:ir.model.fields,field_description:km_petronad.field_km_petronad_data_input_wizard_a__ww_production
 msgid "Ww Production"
 msgstr "تولید WW"
@@ -823,6 +1066,11 @@ msgstr "تانک WW"
 #. module: km_petronad
 #: model:ir.module.category,name:km_petronad.module_category_km_petronad
 msgid "km_petronad"
+msgstr ""
+
+#. module: km_petronad
+#: model:ir.model,name:km_petronad.model_km_petronad_analysis
+msgid "km_petronad.analysis"
 msgstr ""
 
 #. module: km_petronad

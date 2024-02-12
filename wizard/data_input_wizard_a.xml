@@ -195,7 +195,7 @@
                             <field name="glycerin_off_batch_number"/>
                         </div>
                         <div class="col">
-                            <field name="glycerin_off_tank" domain="[('fluid', '=', 'GLYCERIN off')]"
+                            <field name="glycerin_off_tank" domain="[('fluid', '=', 'GLYCERIN Crude')]"
                                    options="{'no_create': True, 'no_open': True}"
                                    attrs="{'required': [('glycerin_off_usage', '!=', 0)]}"/>
                         </div>

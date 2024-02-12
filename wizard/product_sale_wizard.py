@@ -31,7 +31,7 @@ class KmPetronadProductSaleWizard(models.TransientModel):
     tank = fields.Many2one('km_petronad.storage_tanks', )
     tank_amount = fields.Integer(related='tank.amount')
     tank_capacity = fields.Integer(related='tank.capacity')
-    buyer = fields.Many2one('res.partner', required=True )
+    buyer = fields.Many2one('res.partner', required=True,  )
     transporter = fields.Many2one('res.partner', required=True )
     transport_type = fields.Selection([('tanker', 'Tanker'), ('barrel', 'Barrel')], required=True, default='tanker')
     barrel_weight = fields.Integer(default=230)
@@ -61,23 +61,28 @@ class KmPetronadProductSaleWizard(models.TransientModel):
         data = {'form_data': read_form}
 
         if self.amount > 0:
-            self.check_residue(self.amount, self.tank)
+            if self.transport_type == 'tanker':
+                self.check_residue(self.amount, self.tank)
+                self.tank.write({'amount': -1 * self.amount + self.tank.amount})
+                self.write_record()
+            elif self.transport_type == 'barrel':
+                self.write_record()
 
-            self.tank.write({'amount': -1 * self.amount + self.tank.amount})
-            self.write_record(self.data_date, self.fluid, self.tank, self.amount, self.buyer )
 
-
-
-
-    def write_record(self, data_date, fluid, tank, amount, partner):
+    def write_record(self,):
         production_record = self.env['km_petronad.production_record']
         fluid_model = self.env['km_petronad.fluids']
         return production_record.create({
-                                        'data_date': data_date,
-                                        'fluid': fluid.id,
-                                        'tank': tank.id,
-                                        'amount': amount,
-                                        'partner': partner.id,
+                                        'data_date': self.data_date,
+                                        'fluid': self.fluid.id,
+                                        'tank': self.tank.id if self.transport_type == 'tanker' else False,
+                                        'transport_type': self.transport_type,
+                                        'barrel_quantity': self.barrel_quantity if self.transport_type == 'barrel' else 0,
+                                        'barrel_weight': self.barrel_weight if self.transport_type == 'barrel' else 0,
+                                        'amount': self.amount,
+                                        'driver': self.driver,
+                                        'car_plate': self.car_plate,
+                                        'permit_no': self.permit_no,
                                         'register_type': 'sale',
                                     })
 
