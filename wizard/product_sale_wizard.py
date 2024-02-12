@@ -27,8 +27,18 @@ class KmPetronadProductSaleWizard(models.TransientModel):
 
     amount = fields.Integer( required=True)
     fluid = fields.Many2one('km_petronad.fluids', required=True )
-    tank = fields.Many2one('km_petronad.storage_tanks', required=True )
+    tank = fields.Many2one('km_petronad.storage_tanks', )
+    tank_amount = fields.Integer(related='tank.amount')
+    tank_capacity = fields.Integer(related='tank.capacity')
     buyer = fields.Many2one('res.partner', required=True )
+    transporter = fields.Many2one('res.partner', required=True )
+    transport_type = fields.Selection([('tanker', 'Tanker'), ('barrel', 'Barrel')], required=True, default='tanker')
+    barrel_quantity = fields.Integer()
+    barrel_weight = fields.Integer()
+    driver = fields.Char()
+    car_plate = fields.Char()
+    permit_no = fields.Char()
+
 
     # #############################################################################
 

@@ -8,12 +8,6 @@ from odoo.exceptions import AccessError, ValidationError, MissingError, UserErro
 TEHRAN_TIME = 3.5
 EDIT_CONSTRAINT_DAYS = 1
 
-class KmPetronadProductionUnit(models.Model):
-    _name = 'km_petronad.production_unit'
-
-    name = fields.Char( required=True)
-    company = fields.Many2one( 'res.company', required=True)
-    description = fields.Text( )
 
 class KmPetronadProductionRecord(models.Model):
     _name = 'km_petronad.production_record'
@@ -63,3 +57,33 @@ class KmPetronadProductionPlan(models.Model):
 
         print(f'PLAN create: {vals}')
         return res
+
+class KmPetronadProductionUnit(models.Model):
+    _name = 'km_petronad.production_unit'
+
+    name = fields.Char( required=True)
+    company = fields.Many2one( 'res.company', required=True)
+    description = fields.Text( )
+
+class KmPetronadAnalysis(models.Model):
+    _name = 'km_petronad.analysis'
+
+
+    production = fields.Many2one( 'km_petronad.production_record', required=True)
+    fluid = fields.Many2one('km_petronad.fluids', required=True)
+    water = fields.Float()
+
+    # PEG off
+    m = fields.Float()
+    d = fields.Float()
+    t = fields.Float()
+    tt = fields.Float()
+    salt = fields.Float()
+    uk = fields.Float()
+
+    # Glycerin crude
+    nacl = fields.Float()
+    glycerin = fields.Float()
+    mong = fields.Float()
+    methanol = fields.Float()
+    ph = fields.Float()

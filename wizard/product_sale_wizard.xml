@@ -9,23 +9,37 @@
 
                     <group>
                         <group>
-<!--                            <field name="project" options='{"no_open": True, "no_create": True}'/>-->
-                            <field name="start_datetime" invisible="1"  />
-                            <field name="end_datetime"  invisible="1"/>
-                            <field name="data_date" />
+                            <!--                            <field name="project" options='{"no_open": True, "no_create": True}'/>-->
+                            <field name="start_datetime" invisible="1"/>
+                            <field name="end_datetime" invisible="1"/>
+                            <field name="data_date"/>
                         </group>
                         <group>
-<!--                            <field name="vendor" domain="[('company_type', '=', 'company')]" />-->
+                            <!--                            <field name="vendor" domain="[('company_type', '=', 'company')]" />-->
 
                         </group>
                     </group>
                     <group>
                         <group string="">
-                            <field name="fluid" options="{'no_create': True, 'no_open': True}" domain="[('name', 'in', ['MEG','DEG','TEG','H2', 'MPG', 'GLYCERIN'])]"/>
-                            <field name="tank" domain="[('fluid', '=', fluid)]" options="{'no_create': True, 'no_open': True}" />
-                            <field name="amount" />
+                            <field name="fluid" options="{'no_create': True, 'no_open': True}"
+                                   domain="[('name', 'in', ['MEG','DEG','TEG','H2', 'MPG', 'GLYCERIN'])]"/>
+                            <field name="amount" string="Amount (kg)"/>
+                            <field name="transport_type"/>
+                            <field name="tank" domain="[('fluid', '=', fluid)]"
+                                   attrs="{'invisible':[('transport_type', '=', 'barrel')],
+                                           'required':[('transport_type', '=', 'tanker')],}"
+                                   options="{'no_create': True, 'no_open': True}"/>
+                            <field name="tank_amount" attrs="{'invisible':[('transport_type', '=', 'barrel')]}"/>
+                            <field name="tank_capacity" attrs="{'invisible':[('transport_type', '=', 'barrel')]}"/>
+                            <field name="barrel_quantity" attrs="{'invisible':[('transport_type', '=', 'tanker')],
+                                                                  'required':[('transport_type', '=', 'barrel')], }"/>
+                            <field name="barrel_weight" attrs="{'invisible':[('transport_type', '=', 'tanker')],
+                                                                'required':[('transport_type', '=', 'barrel')]}"/>
                             <field name="buyer" options="{'no_create': True, 'no_open': True}"/>
-
+                            <field name="transporter" options="{'no_create': True, 'no_open': True}"/>
+                            <field name="permit_no"/>
+                            <field name="driver"/>
+                            <field name="car_plate"/>
                         </group>
                         <group string="">
                         </group>

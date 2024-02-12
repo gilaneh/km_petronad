@@ -15,6 +15,33 @@
         </field>
     </record>
 
+    <!--    .......................................... Production Analysis.................................-->
+    <record id="analysis_list" model="ir.ui.view">
+        <field name="name">km_petronad.analysis</field>
+        <field name="model">km_petronad.analysis</field>
+        <field name="priority" eval="10"/>
+        <field name="arch" type="xml">
+            <tree editable="bottom">
+                <field name="production"/>
+                <field name="fluid"/>
+                <field name="water"/>
+
+                <field name="m"/>
+                <field name="d"/>
+                <field name="t"/>
+                <field name="tt"/>
+                <field name="salt"/>
+                <field name="uk"/>
+
+                <field name="nacl"/>
+                <field name="glycerin"/>
+                <field name="mong"/>
+                <field name="methanol"/>
+                <field name="ph"/>
+            </tree>
+        </field>
+    </record>
+
     <!--    .......................................... Production Plan.................................-->
 
     <record id="production_plan_list" model="ir.ui.view">
@@ -90,6 +117,12 @@
         <field name="view_mode">tree,form</field>
     </record>
 
+    <record id="analysis_action" model="ir.actions.act_window">
+        <field name="name">Production Analysis</field>
+        <field name="res_model">km_petronad.analysis</field>
+        <field name="view_mode">tree</field>
+    </record>
+
     <record id="production_record_action" model="ir.actions.act_window">
         <field name="name">Production Record</field>
         <field name="res_model">km_petronad.production_record</field>
@@ -117,5 +150,11 @@
               id="production_plan_menu"
               parent="settings_menu"
               action="production_plan_action"/>
+
+    <menuitem name="Analysis"
+              sequence="11"
+              id="analysis_menu"
+              parent="settings_menu"
+              action="analysis_action"/>
 
 </odoo>

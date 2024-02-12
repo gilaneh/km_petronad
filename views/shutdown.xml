@@ -6,7 +6,7 @@
             <field name="name">km_petronad.shutdown_type</field>
             <field name="model">km_petronad.shutdown_type</field>
             <field name="arch" type="xml">
-                <tree>
+                <tree editable="bottom">
                     <field name="name"/>
                 </tree>
             </field>

@@ -21,13 +21,35 @@
                     </group>
                     <group>
                         <group string="">
+                            <field name="fluid" domain="[('fluid_type', '=', 'feed')]" options="{'no_create': True, 'no_open': True}" />
+                            <field name="fluid_name" invisible="1" />
+                            <field name="feed_tank" domain="[('fluid', '=', fluid)]" options="{'no_create': True, 'no_open': True}" />
                             <field name="vendor" options="{'no_create': True, 'no_open': True}"/>
-                            <field name="feed_tank" domain="[('fluid', '=', 'FEED')]" options="{'no_create': True, 'no_open': True}" />
                             <field name="feed_receive" />
-                            <field name="analysis" />
 
                         </group>
-                        <group string="">
+                            <group attrs="{'invisible':[('fluid_name', 'not in', ['MPG off',])]}">
+                                <field name="water" />
+                            </group>
+                           <group attrs="{'invisible':[('fluid_name', 'not in', ['PEG off',])]}">
+                                <field name="water" />
+                                <field name="m" />
+                                <field name="d" />
+                                <field name="t" />
+                                <field name="tt" />
+                                <field name="salt" />
+                                <field name="uk" />
+
+                            </group>
+                        <group attrs="{'invisible':[('fluid_name', 'not in', ['GLYCERIN off',])]}">
+
+
+                            <field name="water" />
+                            <field name="nacl" />
+                            <field name="glycerin" />
+                            <field name="mong" />
+                            <field name="methanol" />
+                            <field name="ph" />
                         </group>
                     </group>
 

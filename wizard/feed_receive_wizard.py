@@ -25,10 +25,29 @@ class KmPetronadFeedReceiveWizard(models.TransientModel):
     company = fields.Many2one('res.company', )
     production_unit = fields.Many2one('km_petronad.production_unit',)
 
+    fluid = fields.Many2one('km_petronad.fluids', required=True,)
+    fluid_name = fields.Char(related='fluid.name',)
     feed_receive = fields.Integer(required=True,)
     feed_tank = fields.Many2one('km_petronad.storage_tanks', required=True, default=lambda self: self.env['km_petronad.storage_tanks'].search([('fluid', '=', 'FEED')], limit=1))
     vendor = fields.Many2one('res.partner', required=True, )
     analysis = fields.Float()
+
+    water = fields.Float()
+
+    # PEG off
+    m = fields.Float()
+    d = fields.Float()
+    t = fields.Float()
+    tt = fields.Float()
+    salt = fields.Float()
+    uk = fields.Float()
+
+    # Glycerin crude
+    nacl = fields.Float()
+    glycerin = fields.Float()
+    mong = fields.Float()
+    methanol = fields.Float()
+    ph = fields.Float()
     #
     # #############################################################################
 
