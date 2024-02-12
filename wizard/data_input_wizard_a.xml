@@ -50,7 +50,7 @@
                         </div>
                         <div class="col">
                             <field name="feed_tank"
-                                   domain="['|', ('fluid', '=', 'FEED'),('fluid', '=', 'H1')]"
+                                   domain="['|', ('fluid', '=', 'PEG off'),('fluid', '=', 'HEAVY1')]"
                                    options="{'no_create': True, 'no_open': True}"
                                    attrs="{'required': [('feed_usage', '!=', 0)]}"/>
                         </div>
@@ -137,57 +137,87 @@
                     <div class="col-12 o_horizontal_separator">
                         MPG, unit: Kg
                     </div>
-<!--                    <div class="row text-center">-->
-<!--                        <div class="col-2">-->
+                    <!--                    <div class="row text-center">-->
+                    <!--                        <div class="col-2">-->
 
-<!--                        </div>-->
-<!--                        <div class="col-3">-->
-<!--                            Amount-->
-<!--                        </div>-->
-<!--                        <div class="col-3">-->
-<!--                            Batch Number-->
-<!--                        </div>-->
-<!--                        <div class="col-3">-->
-<!--                            Tank-->
-<!--                        </div>-->
-<!--                    </div>-->
+                    <!--                        </div>-->
+                    <!--                        <div class="col-3">-->
+                    <!--                            Amount-->
+                    <!--                        </div>-->
+                    <!--                        <div class="col-3">-->
+                    <!--                            Batch Number-->
+                    <!--                        </div>-->
+                    <!--                        <div class="col-3">-->
+                    <!--                            Tank-->
+                    <!--                        </div>-->
+                    <!--                    </div>-->
 
                     <div class="row">
-                            <label class="col-2" for="mpg_production"></label>
+                        <label class="col-2" for="mpg_off_usage"></label>
 
-                            <div class="col-3">
-                                <field name="mpg_production"/>
-                            </div>
-                            <div class="col">
-                                <field name="mpg_batch_number"/>
-                            </div>
-                            <div class="col">
-                                <field name="mpg_tank" domain="[('fluid', '=', 'MPG')]"
-                                       options="{'no_create': True, 'no_open': True}"
-                                       attrs="{'required': [('mpg_production', '!=', 0)]}"/>
-                            </div>
+                        <div class="col-3">
+                            <field name="mpg_off_usage"/>
                         </div>
-                                        <div class="col-12 o_horizontal_separator">
+                        <div class="col">
+                            <field name="mpg_off_batch_number"/>
+                        </div>
+                        <div class="col">
+                            <field name="mpg_off_tank" domain="[('fluid', '=', 'MPG off')]"
+                                   options="{'no_create': True, 'no_open': True}"
+                                   attrs="{'required': [('mpg_off_usage', '!=', 0)]}"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <label class="col-2" for="mpg_production"></label>
+
+                        <div class="col-3">
+                            <field name="mpg_production"/>
+                        </div>
+                        <div class="col">
+                            <field name="mpg_batch_number"/>
+                        </div>
+                        <div class="col">
+                            <field name="mpg_tank" domain="[('fluid', '=', 'MPG')]"
+                                   options="{'no_create': True, 'no_open': True}"
+                                   attrs="{'required': [('mpg_production', '!=', 0)]}"/>
+                        </div>
+                    </div>
+                    <div class="col-12 o_horizontal_separator">
                         GLYCERIN, unit: Kg
                     </div>
                     <div class="row">
-                            <label class="col-2" for="glycerin_production"></label>
+                        <label class="col-2" for="glycerin_off_usage"></label>
 
-                            <div class="col-3">
-                                <field name="glycerin_production"/>
-                            </div>
-                            <div class="col">
-                                <field name="glycerin_batch_number"/>
-                            </div>
-                            <div class="col">
-                                <field name="glycerin_tank" domain="[('fluid', '=', 'GLYCERIN')]"
-                                       options="{'no_create': True, 'no_open': True}"
-                                       attrs="{'required': [('glycerin_production', '!=', 0)]}"/>
-                            </div>
+                        <div class="col-3">
+                            <field name="glycerin_off_usage"/>
                         </div>
+                        <div class="col">
+                            <field name="glycerin_off_batch_number"/>
+                        </div>
+                        <div class="col">
+                            <field name="glycerin_off_tank" domain="[('fluid', '=', 'GLYCERIN off')]"
+                                   options="{'no_create': True, 'no_open': True}"
+                                   attrs="{'required': [('glycerin_off_usage', '!=', 0)]}"/>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <label class="col-2" for="glycerin_production"></label>
+
+                        <div class="col-3">
+                            <field name="glycerin_production"/>
+                        </div>
+                        <div class="col">
+                            <field name="glycerin_batch_number"/>
+                        </div>
+                        <div class="col">
+                            <field name="glycerin_tank" domain="[('fluid', '=', 'GLYCERIN')]"
+                                   options="{'no_create': True, 'no_open': True}"
+                                   attrs="{'required': [('glycerin_production', '!=', 0)]}"/>
+                        </div>
+                    </div>
                     <group>
 
-                    <field name="description" string="Daily Description"/>
+                        <field name="description" string="Daily Description"/>
                     </group>
 
 
