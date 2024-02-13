@@ -17,6 +17,7 @@
             <field name="arch" type="xml">
                 <tree>
                     <field name="shutdown_date"/>
+                    <field name="fluid"/>
                     <field name="shutdown_time"/>
                     <field name="shutdown_type"/>
 <!--                    <field name="description"/>-->
@@ -34,6 +35,7 @@
                         <group>
                             <group>
                                 <field name="shutdown_date"/>
+                                <field name="fluid"/>
                                 <field name="shutdown_time"/>
                                 <field name="shutdown_type"/>
                             </group>

@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 15.0e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-12 13:57+0000\n"
-"PO-Revision-Date: 2024-02-12 17:39+0330\n"
+"POT-Creation-Date: 2024-02-13 05:06+0000\n"
+"PO-Revision-Date: 2024-02-13 08:37+0330\n"
 "Last-Translator: Arash Homayounfar <homayounfar@msn.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -21,6 +21,11 @@ msgstr ""
 #: model:res.groups,name:km_petronad.group_km_petronad_admins
 msgid "Administrators"
 msgstr ""
+
+#. module: km_petronad
+#: model:ir.ui.menu,name:km_petronad.production_record_menu
+msgid "All Production Record"
+msgstr "داده های تولید"
 
 #. module: km_petronad
 #: model:ir.model.fields,field_description:km_petronad.field_km_petronad_data_input_wizard__amount
@@ -387,7 +392,7 @@ msgstr "مواد"
 #. module: km_petronad
 #: model:ir.actions.act_window,name:km_petronad.fluids_action
 msgid "Fluid Data"
-msgstr "مواد"
+msgstr "تاریخ مواد"
 
 #. module: km_petronad
 #: model:ir.actions.act_window,name:km_petronad.km_petronad_fluid_move_wizard_action
@@ -497,6 +502,11 @@ msgstr "تانک H2"
 #: model:ir.model.fields,field_description:km_petronad.field_km_petronad_tank_operations__id
 msgid "ID"
 msgstr ""
+
+#. module: km_petronad
+#: model:ir.model.fields.selection,name:km_petronad.selection__km_petronad_production_record__transport_type__iso_tank
+msgid "ISO Tank"
+msgstr "ایزوتانک"
 
 #. module: km_petronad
 #. openerp-web
@@ -755,7 +765,7 @@ msgstr ""
 #: model:ir.model.fields.selection,name:km_petronad.selection__km_petronad_production_record__register_type__production
 #: model:ir.ui.menu,name:km_petronad.km_petronad_data_input_a
 msgid "Production"
-msgstr "تولید"
+msgstr "ثبت تولید"
 
 #. module: km_petronad
 #: model:ir.actions.act_window,name:km_petronad.analysis_action
@@ -770,7 +780,6 @@ msgstr "برنامه تولید"
 
 #. module: km_petronad
 #: model:ir.actions.act_window,name:km_petronad.production_record_user_view_production_action
-#: model:ir.ui.menu,name:km_petronad.production_record_menu
 msgid "Production Record"
 msgstr "داده های تولید"
 
@@ -967,7 +976,7 @@ msgstr "تولید TEG"
 #. module: km_petronad
 #: model:ir.model.fields,field_description:km_petronad.field_km_petronad_data_input_wizard_a__teg_tank
 msgid "Teg Tank"
-msgstr ""
+msgstr "تانک TEG"
 
 #. module: km_petronad
 #: model_terms:ir.ui.view,arch_db:km_petronad.shutdown_search
@@ -1036,6 +1045,11 @@ msgstr "کاربران"
 #: model:ir.model.fields,field_description:km_petronad.field_km_petronad_fluid_move__vendor
 msgid "Vendor"
 msgstr "تامین کننده"
+
+#. module: km_petronad
+#: model:ir.model.fields,field_description:km_petronad.field_km_petronad_production_record__vendor_buyer_amount
+msgid "Vendor Buyer Amount"
+msgstr ""
 
 #. module: km_petronad
 #: model:ir.model.fields,field_description:km_petronad.field_km_petronad_production_record__partner

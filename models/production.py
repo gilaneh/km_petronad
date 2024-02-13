@@ -25,7 +25,7 @@ class KmPetronadProductionRecord(models.Model):
                                       ('feed_usage', 'Feed Usage'),], )
     partner = fields.Many2one('res.partner', string='Vendor/Buyer')
     transporter = fields.Many2one('res.partner')
-    transport_type = fields.Selection([('tanker', 'Tanker'), ('barrel', 'Barrel')], )
+    transport_type = fields.Selection([('tanker', 'Tanker'),('iso_tank', 'ISO Tank'), ('barrel', 'Barrel')], )
     barrel_quantity = fields.Integer()
     barrel_weight = fields.Integer()
     driver = fields.Char()
@@ -33,6 +33,7 @@ class KmPetronadProductionRecord(models.Model):
     permit_no = fields.Char()
     analysis = fields.Float()
     amount = fields.Integer()
+    vendor_buyer_amount = fields.Integer()
     unit = fields.Selection([('kg', 'Kg'), ('ton', 'Ton')], default='kg', required=True)
 
     def write(self, vals):

@@ -11,6 +11,7 @@ class KmPetronadShutdown(models.Model):
 
     shutdown_date = fields.Date(required=True, default=lambda self: datetime.now() - timedelta(hours=TEHRAN_TIME) )
     shutdown_time = fields.Integer( required=True)
+    fluid = fields.Many2one('km_petronad.fluids', required=True)
     shutdown_type = fields.Many2one('km_petronad.shutdown_type', required=True)
     description = fields.Text()
 
