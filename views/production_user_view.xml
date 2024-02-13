@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <odoo>
-<!--.............................................. user_view_production ................................-->
+    <!--.............................................. user_view_production ................................-->
     <record id="production_record_user_view_production_list" model="ir.ui.view">
         <field name="name">Production Records</field>
         <field name="model">km_petronad.production_record</field>
         <field name="priority" eval="20"/>
         <field name="arch" type="xml">
-            <tree editable="top" create="0" delete="0" >
+            <tree editable="top" create="0" delete="0">
                 <field name="data_date"/>
                 <field name="fluid"/>
                 <field name="tank"/>
@@ -29,54 +29,41 @@
         </field>
     </record>
 
-<!--.............................................. user_view_sale ................................-->
+
+    <record id="production_record_user_view_production_search" model="ir.ui.view">
+        <field name="name">Production Records</field>
+        <field name="model">km_petronad.production_record</field>
+        <field name="priority" eval="20"/>
+        <field name="arch" type="xml">
+            <search>
+                <field name="fluid"/>
+                <field name="partner"/>
+                <filter name="fluid_group" string="Fluid" context="{'group_by': 'fluid'}"></filter>
+                <filter name="buyer_group" string="Buyer" context="{'group_by': 'partner'}"></filter>
+            </search>
+        </field>
+    </record>
+    <!--.............................................. user_view_sale ................................-->
     <record id="production_record_user_view_sale_list" model="ir.ui.view">
         <field name="name">Sale Records</field>
         <field name="model">km_petronad.production_record</field>
         <field name="priority" eval="20"/>
         <field name="arch" type="xml">
-            <tree editable="top" create="0" delete="0" >
+            <tree editable="top" create="0" delete="0">
                 <field name="data_date"/>
                 <field name="fluid"/>
                 <field name="tank"/>
                 <field name="shift"/>
                 <field name="shift_group"/>
                 <field name="register_type" invisible="1"/>
-                                    <field name="partner"/>
-                                    <field name="transporter"/>
-                                    <field name="transport_type"/>
-                                    <field name="barrel_quantity"/>
-                                    <field name="barrel_weight"/>
-                                    <field name="permit_no"/>
-                                    <field name="driver"/>
-                                    <field name="car_plate"/>
-                <field name="analysis"/>
-                <field name="amount"/>
-                <field name="unit"/>
-            </tree>
-        </field>
-    </record>
-<!--.............................................. user_view_feed_receive ................................-->
-    <record id="production_record_user_view_feed_receive_list" model="ir.ui.view">
-        <field name="name">Feed Receive Records</field>
-        <field name="model">km_petronad.production_record</field>
-        <field name="priority" eval="20"/>
-        <field name="arch" type="xml">
-            <tree editable="top" create="0" delete="0" >
-                <field name="data_date"/>
-                <field name="fluid"/>
-                <field name="tank"/>
-<!--                <field name="shift"/>-->
-<!--                <field name="shift_group"/>-->
-                <field name="register_type" invisible="1"/>
-                                    <field name="partner"/>
-<!--                                    <field name="transporter"/>-->
-<!--                                    <field name="transport_type"/>-->
-<!--                                    <field name="barrel_quantity"/>-->
-<!--                                    <field name="barrel_weight"/>-->
-<!--                                    <field name="permit_no"/>-->
-                                    <field name="driver"/>
-                                    <field name="car_plate"/>
+                <field name="partner"/>
+                <field name="transporter"/>
+                <field name="transport_type"/>
+                <field name="barrel_quantity"/>
+                <field name="barrel_weight"/>
+                <field name="permit_no"/>
+                <field name="driver"/>
+                <field name="car_plate"/>
                 <field name="analysis"/>
                 <field name="amount"/>
                 <field name="unit"/>
@@ -84,6 +71,62 @@
         </field>
     </record>
 
+
+    <record id="production_record_user_view_sale_search" model="ir.ui.view">
+        <field name="name">Sale Records</field>
+        <field name="model">km_petronad.production_record</field>
+        <field name="priority" eval="20"/>
+        <field name="arch" type="xml">
+            <search>
+                <field name="fluid"/>
+                <field name="partner"/>
+                <filter name="fluid_group" string="Fluid" context="{'group_by': 'fluid'}"></filter>
+                <filter name="buyer_group" string="Buyer" context="{'group_by': 'partner'}"></filter>
+            </search>
+        </field>
+    </record>
+
+    <!--.............................................. user_view_feed_receive ................................-->
+    <record id="production_record_user_view_feed_receive_list" model="ir.ui.view">
+        <field name="name">Feed Receive Records</field>
+        <field name="model">km_petronad.production_record</field>
+        <field name="priority" eval="20"/>
+        <field name="arch" type="xml">
+            <tree editable="top" create="0" delete="0">
+                <field name="data_date"/>
+                <field name="fluid"/>
+                <field name="tank"/>
+                <!--                <field name="shift"/>-->
+                <!--                <field name="shift_group"/>-->
+                <field name="register_type" invisible="1"/>
+                <field name="partner"/>
+                <!--                                    <field name="transporter"/>-->
+                <!--                                    <field name="transport_type"/>-->
+                <!--                                    <field name="barrel_quantity"/>-->
+                <!--                                    <field name="barrel_weight"/>-->
+                <!--                                    <field name="permit_no"/>-->
+                <field name="driver"/>
+                <field name="car_plate"/>
+                <field name="analysis"/>
+                <field name="amount"/>
+                <field name="unit"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="production_record_user_view_feed_receive_search" model="ir.ui.view">
+        <field name="name">Feed Receive Records</field>
+        <field name="model">km_petronad.production_record</field>
+        <field name="priority" eval="20"/>
+        <field name="arch" type="xml">
+            <search>
+                <field name="fluid"/>
+                <field name="partner"/>
+                <filter name="fluid_group" string="Fluid" context="{'group_by': 'fluid'}"></filter>
+                <filter name="vendor_group" string="Vendor" context="{'group_by': 'partner'}"></filter>
+            </search>
+        </field>
+    </record>
     <!--.............................................. Actions ................................-->
 
     <record id="production_record_user_view_production_action" model="ir.actions.act_window">
@@ -91,7 +134,8 @@
         <field name="res_model">km_petronad.production_record</field>
         <field name="view_mode">tree</field>
         <field name="domain">[('register_type', '=', 'production')]</field>
-
+        <field name="search_view_id" ref="km_petronad.production_record_user_view_production_search"/>
+        <field name="context">{'search_default_fluid_group': 1}</field>
         <field name="view_ids" eval="[(5, 0, 0),
                 (0, 0, {'view_mode': 'tree', 'view_id': ref('production_record_user_view_production_list')}),
                 ]"/>
@@ -102,7 +146,8 @@
         <field name="res_model">km_petronad.production_record</field>
         <field name="view_mode">tree</field>
         <field name="domain">[('register_type', '=', 'sale')]</field>
-
+        <field name="search_view_id" ref="km_petronad.production_record_user_view_sale_search"/>
+        <field name="context">{'search_default_fluid_group': 1}</field>
         <field name="view_ids" eval="[(5, 0, 0),
                 (0, 0, {'view_mode': 'tree', 'view_id': ref('production_record_user_view_sale_list')}),
                 ]"/>
@@ -113,6 +158,8 @@
         <field name="res_model">km_petronad.production_record</field>
         <field name="view_mode">tree</field>
         <field name="domain">[('register_type', '=', 'feed_receive')]</field>
+        <field name="search_view_id" ref="km_petronad.production_record_user_view_feed_receive_search"/>
+        <field name="context">{'search_default_fluid_group': 1}</field>
 
         <field name="view_ids" eval="[(5, 0, 0),
                 (0, 0, {'view_mode': 'tree', 'view_id': ref('production_record_user_view_feed_receive_list')}),

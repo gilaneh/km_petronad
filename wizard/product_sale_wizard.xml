@@ -22,7 +22,7 @@
                     <group>
                         <group string="">
                             <field name="fluid" options="{'no_create': True, 'no_open': True}"
-                                   domain="[('name', 'in', ['MEG','DEG','TEG','H2', 'MPG', 'GLYCERIN'])]"/>
+                                   domain="[('name', 'in', ['MEG','DEG','TEG','HEAVY2', 'MPG', 'GLYCERIN', 'GLYCERIN Pitch'])]"/>
                             <field name="amount" string="Amount (kg)"/>
                             <field name="transport_type"/>
                             <field name="tank" domain="[('fluid', '=', fluid)]"
