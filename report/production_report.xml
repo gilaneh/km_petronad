@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="petronad_production_report_a4" model="report.paperformat">
+    <field name="name">Petronad Daily A4</field>
+    <field name="default" eval="True"/>
+    <field name="format">custom</field>
+    <field name="page_height">297</field>
+    <field name="page_width">210</field>
+    <field name="orientation">Portrait</field>
+    <field name="margin_top">20</field>
+    <field name="margin_bottom">5</field>
+    <field name="margin_left">5</field>
+    <field name="margin_right">5</field>
+    <field name="header_line" eval="False"/>
+    <field name="header_spacing">3</field>
+    <field name="dpi">100</field>
+</record>
+
+    <record id="petronad_production_report" model="ir.actions.report">
+        <field name="name">Production Report</field>
+        <field name="model">km_petronad.production_record</field>
+        <field name="report_type">qweb-html</field>
+<!--        <field name="report_type">qweb-pdf</field>-->
+        <field name="report_name">km_petronad.production_report_template</field>
+        <field name="report_file">km_petronad.production_report_template</field>
+<!--            <field name="print_report_name">'Daily%s-%s' % (object.project, object.date)</field>-->
+        <field name="paperformat_id" ref="petronad_production_report_a4"/>
+        <field name="binding_model_id" ref="model_km_petronad_production_record"/>
+        <field name="binding_type">report</field>
+
+    </record>
+
+    <record id="petronad_production_xls_report" model="ir.actions.report">
+        <field name="name">Production xls Report</field>
+        <field name="model">km_petronad.production_record</field>
+        <field name="report_type">xlsx</field>
+<!--        <field name="report_type">qweb-html</field>-->
+<!--        <field name="report_type">qweb-pdf</field>-->
+        <field name="report_name">km_petronad.production_xls_report_template</field>
+<!--        <field name="report_file">km_petronad.production_report_template</field>-->
+<!--            <field name="print_report_name">'Daily%s-%s' % (object.project, object.date)</field>-->
+<!--        <field name="paperformat_id" ref="petronad_production_report_a4"/>-->
+<!--        <field name="binding_model_id" ref="model_km_petronad_production_record"/>-->
+<!--        <field name="binding_type">report</field>-->
+
+    </record>
+
+
+
+</odoo>

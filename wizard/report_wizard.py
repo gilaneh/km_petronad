@@ -19,17 +19,21 @@ class KmPetronadReport(models.TransientModel):
     #                                                   ('overview_officers', 'in', partner_id.id),])
     #     return [('id', 'in', projects.ids)]
 
-    project = fields.Many2one('project.project', )
 
     start_date = fields.Date(required=True, default=lambda self: date.today() - timedelta(days=14))
     end_date = fields.Date(required=True, default=lambda self: date.today())
+    fluids = fields.Many2many('km_petronad.fluids')
+    register_type = fields.Selection([('production', 'Production'),
+                                      ('sale', 'Sale'),
+                                      ('feed_receive', 'Feed Receive'),
+                                      ('feed_usage', 'Feed Usage'),], default='production', require=True )
 
 
     # #############################################################################
-    def overview_daily_report(self):
+    def export_to_excel(self):
         read_form = self.read()[0]
         data = {'form_data': read_form}
 
-        return self.env.ref('km_petronad.petronad_daily_report').report_action(self, data=data)
+        return self.env.ref('km_petronad.petronad_production_xls_report').report_action(self, data=data)
 
 

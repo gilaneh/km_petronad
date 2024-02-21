@@ -19,7 +19,7 @@
     'version': '1.2.0',
 
     # any module necessary for this one to work correctly
-    'depends': ['base', 'web', 'mail', 'project', 'hr'],
+    'depends': ['base', 'web', 'mail', 'project', 'hr', 'report_xlsx'],
 
     # always loaded
     'data': [
@@ -37,7 +37,7 @@
         'views/production.xml',
         'views/production_user_view.xml',
         'views/comments.xml',
-        # 'wizard/report_wizard.xml',
+        'wizard/report_wizard.xml',
         'wizard/data_input_wizard.xml',
         'wizard/data_input_wizard_a.xml',
         'wizard/feed_receive_wizard.xml',
@@ -48,7 +48,8 @@
         'data/shutdown_type_data.xml',
         'data/fluids_data.xml',
         'data/tank_operation_data.xml',
-        # 'report/daily_report.xml',
+        'report/production_report_template.xml',
+        'report/production_report.xml',
         # 'report/daily_report_template.xml',
         ],
     'assets': {

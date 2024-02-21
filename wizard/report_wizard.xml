@@ -8,23 +8,22 @@
                 <form>
                     <group>
                         <group>
-                            <field name="project" options='{"no_open": True, "no_create": True}'/>
                         </group>
                         <group>
                         </group>
                     </group>
                     <group>
                         <group>
-<!--                            <field name="start_date" />-->
+                            <field name="fluids" widget="many2many_tags" />
+                            <field name="register_type"  />
                         </group>
                         <group>
-                            <field name="end_date" string="Date" />
                         </group>
                     </group>
 
 
                     <footer>
-                        <button name="overview_daily_report" string="Print" type="object" class="btn btn-primary"/>
+                        <button name="export_to_excel" string="Excel" type="object" class="btn btn-primary"/>
                         <button string="Cancel" special="cancel" class="btn-secondary"/>
                     </footer>
 
@@ -43,8 +42,7 @@
         <menuitem name="Reports"
                   sequence="20"
                   id="km_petronad_report"
-                  parent="km_petronad.reports_menu"
-                  groups="km_petronad.group_km_petronad_users"
+                  parent="km_petronad.data_view_menu"
                   action="km_petronad_report_wizard_action"/>
     </data>
 </odoo>

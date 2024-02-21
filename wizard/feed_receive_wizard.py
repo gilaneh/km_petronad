@@ -82,7 +82,6 @@ class KmPetronadFeedReceiveWizard(models.TransientModel):
                                         'tank': tank.id,
                                         'amount': amount,
                                         'partner': partner.id,
-                                        'analysis': analysis,
                                         'register_type': 'feed_receive',
                                     })
 
