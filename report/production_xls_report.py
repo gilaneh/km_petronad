@@ -66,12 +66,12 @@ class ReportKmPetronadProductionXlsReport(models.AbstractModel):
         row_no = next(row)
         for data in report_data['data_records']:
             sheet.write(row_no, col + 0, data['data_date'], )
-            sheet.write(row_no, col + 1, data['rec'].fluid.name, )
-            sheet.write(row_no, col + 2, data['rec'].amount, )
-            sheet.write(row_no, col + 3, data['rec'].unit, )
-            sheet.write(row_no, col + 4, data['rec'].tank.name, )
-            sheet.write(row_no, col + 5, data['rec'].shift, )
-            sheet.write(row_no, col + 6, data['rec'].shift_group, )
+            sheet.write(row_no, col + 1, data['rec'].fluid.name or '', )
+            sheet.write(row_no, col + 2, data['rec'].amount or '', )
+            sheet.write(row_no, col + 3, data['rec'].unit or '', )
+            sheet.write(row_no, col + 4, data['rec'].tank.name or '', )
+            sheet.write(row_no, col + 5, data['rec'].shift or '', )
+            sheet.write(row_no, col + 6, data['rec'].shift_group or '', )
             # print(f'{row_no}  ', end='')
             # Note: 5000 lines for row limitation
             row_no = next(row)
