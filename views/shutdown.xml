@@ -59,10 +59,12 @@
                 <search >
                     <field name="shutdown_date"/>
                     <field name="shutdown_type"/>
+                    <field name="fluid"/>
                     <field name="description"/>
                     <filter name="this_day_shutdown" string="Today" domain="[('shutdown_date', '=', context_today().strftime('%Y-%m-%d'))]"> </filter>
                     <group>
                         <filter name="shutdown_types" string="Types" context="{'group_by': 'shutdown_type'}"> </filter>
+                        <filter name="shutdown_fluid" string="Fluid" context="{'group_by': 'fluid'}"> </filter>
 
                     </group>
                 </search>
