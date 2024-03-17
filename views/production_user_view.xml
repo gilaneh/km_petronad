@@ -7,7 +7,7 @@
         <field name="model">km_petronad.production_record</field>
         <field name="priority" eval="20"/>
         <field name="arch" type="xml">
-            <tree editable="top" create="0" delete="0">
+            <tree editable="top" multi_edit="1" create="0" delete="0">
                 <field name="data_date"/>
                 <field name="fluid"/>
                 <field name="tank"/>
