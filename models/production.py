@@ -37,7 +37,7 @@ class KmPetronadProductionRecord(models.Model):
     unit = fields.Selection([('kg', 'Kg'), ('ton', 'Ton')], default='kg', required=True)
 
     def write(self, vals):
-        if self.create_date + timedelta(days=EDIT_CONSTRAINT_DAYS) < datetime.now():
+        if not self.env.is_admin() and  self.create_date + timedelta(days=EDIT_CONSTRAINT_DAYS) < datetime.now():
             raise ValidationError(_(f'This record is not editable. \n    It is {(datetime.now() - self.create_date).days} day(s) old.'))
 
         return super(KmPetronadProductionRecord, self).write(vals)
